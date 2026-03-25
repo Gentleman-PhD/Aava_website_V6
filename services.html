@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aava Growth | Services</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .placeholder-section {
+            padding-top: 150px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body class="services-page">
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo-link">
+                <img src="Assets2/AAVA_white.png" alt="Aava Growth Logo" class="nav-logo visible" style="opacity: 1 !important; visibility: visible !important;">
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-cta">
+                <a href="contact.html" class="btn btn-primary">Book a Call</a>
+            </div>
+        </div>
+    </nav>
+    <!-- HERO SECTION - SERVICES -->
+    <section class="service-hero-section">
+        <video autoplay loop muted playsinline class="hero-bg-video">
+            <source src="Assets2/Luxury_Glass_Effect_Video_Creation.mp4" type="video/mp4">
+        </video>
+
+        <div class="hero-overlay"></div>
+
+        <div class="container text-center relative-z">
+            <div class="subtitle-badge badge-alert">OUR SERVICES</div>
+            <h1 class="section-title text-white">End-to-end commercial architecture on-demand</h1>
+            <p class="section-description text-white" style="margin: 0 auto 40px auto; max-width: 800px;">
+                We design, build, and operationalize the commercial architecture required to scale - from audit to strategy to execution — we design and embed the commercial systems that turn innovation into structured, sustainable and scalable B2B revenue.
+            </p>
+
+            <div class="hero-actions" style="display: flex; justify-content: center;">
+                <a href="contact.html" class="btn btn-primary btn-large">Book a Call</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section pt-0">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <div class="subtitle-badge" style="border: 1px solid #FD8BD1 !important; color: #FD8BD1 !important; margin-bottom: 20px; display: inline-block;">WHAT WE DO</div>
+                <h2 style="font-size: 3.5rem; font-weight: 800; margin: 20px 0; letter-spacing: -0.04em; color: #0D1733;">Everything Commercial.<br><span style="color: #FD8BD1;">End to End.</span></h2>
+                <p style="font-size: 1.25rem; color: rgba(13, 23, 51, 0.8); max-width: 800px; margin: 0 auto;">
+                    Aava Growth builds strategies that compound, not campaigns that spike - combining audit, strategy, sales infrastructure and embedded execution support - on demand, when you need it.
+                </p>
+            </div>
+
+          <div class="services-overview-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 60px; align-items: stretch;">
+              <div style="padding: 40px; display: flex; flex-direction: column; align-items: center; text-align: center; height: 100%; border: 2px solid #0D1733; border-radius: 16px; background: #FFFFFF;">
+                  <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; color: #0D1733;">Audit</h3>
+                  <p style="font-size: 1rem; color: #0D1733; margin: 0;">Independent assessment of sales and commercial readiness for scaling projects and investors.</p>
+              </div>
+              <div style="padding: 40px; display: flex; flex-direction: column; align-items: center; text-align: center; height: 100%; border: 2px solid #0D1733; border-radius: 16px; background: #FFFFFF;">
+                  <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; color: #0D1733;">Strategy</h3>
+                  <p style="font-size: 1rem; color: #0D1733; margin: 0;">Strategic sales and commercial architecture created and embedded into the organization.</p>
+              </div>
+              <div style="padding: 40px; display: flex; flex-direction: column; align-items: center; text-align: center; height: 100%; border: 2px solid #0D1733; border-radius: 16px; background: #FFFFFF;">
+                  <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; color: #0D1733;">Execution</h3>
+                  <p style="font-size: 1rem; color: #0D1733; margin: 0;">Revenue acceleration and operational enablement driven by embedded experts.</p>
+              </div>
+          </div>
+        </div>
+    </section>
+
+    <div id="service-tracker" class="service-tracker">
+        <div class="tracker-group">
+            <a href="#audit" class="tracker-item" data-target="audit">
+                <span class="tracker-dot"></span>
+                Audit
+            </a>
+            <div class="tracker-sub-menu">
+                <a href="#sales-audit" class="tracker-sub-item" data-target="sales-audit">
+                    <span class="sub-connecting-line"></span> Sales Audit
+                </a>
+                <a href="#revenue-audit" class="tracker-sub-item" data-target="revenue-audit">
+                    <span class="sub-connecting-line"></span> Revenue Alignment
+                </a>
+                <a href="#excellence-audit" class="tracker-sub-item" data-target="excellence-audit">
+                    <span class="sub-connecting-line"></span> Commercial Excellence
+                </a>
+                <a href="#investor-audit" class="tracker-sub-item" data-target="investor-audit">
+                    <span class="sub-connecting-line"></span> Investor Audit
+                </a>
+            </div>
+        </div>
+
+        <div class="tracker-group">
+            <a href="#strategy" class="tracker-item" data-target="strategy">
+                <span class="tracker-dot"></span>
+                Strategy
+            </a>
+            <div class="tracker-sub-menu strategy-sub-menu">
+                <a href="#strat-market" class="tracker-sub-item" data-target="strat-market"><span class="sub-connecting-line"></span> Market & Competitive</a>
+                <a href="#strat-icp" class="tracker-sub-item" data-target="strat-icp"><span class="sub-connecting-line"></span> Ideal Customer Profile</a>
+                <a href="#strat-pricing" class="tracker-sub-item" data-target="strat-pricing"><span class="sub-connecting-line"></span> Product & Pricing</a>
+                <a href="#strat-custom" class="tracker-sub-item" data-target="strat-custom"><span class="sub-connecting-line"></span> Customized Commercial</a>
+                <a href="#strat-sales" class="tracker-sub-item" data-target="strat-sales"><span class="sub-connecting-line"></span> Sales Strategy</a>
+                <a href="#strat-journey" class="tracker-sub-item" data-target="strat-journey"><span class="sub-connecting-line"></span> Customer Journey</a>
+                <a href="#strat-capability" class="tracker-sub-item" data-target="strat-capability"><span class="sub-connecting-line"></span> Commercial Capability</a>
+                <a href="#strat-playbook" class="tracker-sub-item" data-target="strat-playbook"><span class="sub-connecting-line"></span> Commercial Playbook</a>
+                <a href="#strat-event" class="tracker-sub-item" data-target="strat-event"><span class="sub-connecting-line"></span> Event Strategy</a>
+                <a href="#strat-fund" class="tracker-sub-item" data-target="strat-fund"><span class="sub-connecting-line"></span> Fundraising Readiness</a>
+                <a href="#strat-transform" class="tracker-sub-item" data-target="strat-transform"><span class="sub-connecting-line"></span> Transformation Strategy</a>
+                <a href="#strat-revenue" class="tracker-sub-item" data-target="strat-revenue"><span class="sub-connecting-line"></span> Revenue Model Design</a>
+                <a href="#strat-pipeline" class="tracker-sub-item" data-target="strat-pipeline"><span class="sub-connecting-line"></span> Pipeline & Demand</a>
+                <a href="#strat-partner" class="tracker-sub-item" data-target="strat-partner"><span class="sub-connecting-line"></span> Partnership Strategy</a>
+            </div>
+        </div>
+        <div class="tracker-group">
+            <a href="#execution" class="tracker-item" data-target="execution">
+                <span class="tracker-dot"></span>
+                Execution
+            </a>
+            <div class="tracker-sub-menu execution-sub-menu">
+                <a href="#exec-fractional" class="tracker-sub-item" data-target="exec-fractional"><span class="sub-connecting-line"></span> Fractional Leadership</a>
+                <a href="#exec-growth" class="tracker-sub-item" data-target="exec-growth"><span class="sub-connecting-line"></span> Growth & BD</a>
+                <a href="#exec-coaching" class="tracker-sub-item" data-target="exec-coaching"><span class="sub-connecting-line"></span> Sales Coaching</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 01. AUDIT SECTION -->
+    <section id="audit" class="section bg-secondary">
+        <div class="container">
+          <div class="service-header text-center" style="margin-bottom: 80px;">
+              <div class="subtitle-badge" style="border: 1px solid #FFFFFF !important; color: #FFFFFF !important; display: inline-block; margin-bottom: 24px;">Audit</div>
+              <h2 class="section-title">Clarity Before Scale.<br>Structure Before Growth.</h2>
+              <p class="section-description">Our audits uncover what's truly happening inside your commercial operations—not what's written in strategy documents, but what plays out in daily execution.</p>
+              <div style="margin-top: 32px;">
+                  <a href="contact.html" class="btn btn-large" style="background: #FFFFFF; color: #0D1733; font-weight: 700; text-decoration: none;">Let's Talk</a>
+              </div>
+          </div>
+
+          <div class="audit-types-grid horizontal-audit-grid" style="display: grid; grid-template-columns: 1fr; gap: 30px;">
+              <div id="sales-audit" class="horizontal-audit-box" style="background: #FFFFFF; border-radius: 16px; display: flex; gap: 40px; padding: 40px; align-items: center; transition: all 0.4s ease;">
+                  <div class="audit-number" style="font-size: 3rem; font-weight: 800; opacity: 1; line-height: 1; transition: color 0.4s ease;">1</div>
+                  <div>
+                      <h3 class="audit-title" style="font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; transition: color 0.4s ease;">Sales Audit</h3>
+                      <p class="audit-text" style="margin: 0; transition: color 0.4s ease;">Evaluate sales process, pipeline structure, team capability, and deal velocity barriers.</p>
+                  </div>
+              </div>
+
+              <div id="revenue-audit" class="horizontal-audit-box" style="background: #FFFFFF; border-radius: 16px; display: flex; gap: 40px; padding: 40px; align-items: center; transition: all 0.4s ease;">
+                  <div class="audit-number" style="font-size: 3rem; font-weight: 800; opacity: 1; line-height: 1; transition: color 0.4s ease;">2</div>
+                  <div>
+                      <h3 class="audit-title" style="font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; transition: color 0.4s ease;">Revenue Alignment Audit</h3>
+                      <p class="audit-text" style="margin: 0; transition: color 0.4s ease;">Examine the full revenue journey — lead generation to close — fixing sales and marketing misalignment.</p>
+                  </div>
+              </div>
+
+              <div id="excellence-audit" class="horizontal-audit-box" style="background: #FFFFFF; border-radius: 16px; display: flex; gap: 40px; padding: 40px; align-items: center; transition: all 0.4s ease;">
+                  <div class="audit-number" style="font-size: 3rem; font-weight: 800; opacity: 1; line-height: 1; transition: color 0.4s ease;">3</div>
+                  <div>
+                      <h3 class="audit-title" style="font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; transition: color 0.4s ease;">Commercial Excellence Audit</h3>
+                      <p class="audit-text" style="margin: 0; transition: color 0.4s ease;">Comprehensive diagnostic across strategy, sales, marketing, CX, and growth planning as one integrated engine.</p>
+                  </div>
+              </div>
+
+              <div id="investor-audit" class="horizontal-audit-box" style="background: #FFFFFF; border-radius: 16px; display: flex; gap: 40px; padding: 40px 40px 60px 40px; align-items: center; position: relative; transition: all 0.4s ease;">
+                  <div class="audit-number" style="font-size: 3rem; font-weight: 800; opacity: 1; line-height: 1; transition: color 0.4s ease;">4</div>
+                  <div style="flex: 1;">
+                      <h3 class="audit-title" style="font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; transition: color 0.4s ease;">Investor Audit Services</h3>
+                      <p class="audit-text" style="margin: 0; transition: color 0.4s ease;">Full audit service for Investors to vet projects. We audit fundamentals across technology, financials, marketing, and sales readiness.</p>
+                  </div>
+                  <a href="360audit.html" class="audit-link" style="position: absolute; bottom: 20px; right: 40px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.4s ease;">Read more &rarr;</a>
+              </div>
+          </div>
+
+            <!-- Deep Dive Grid -->
+
+
+          <div style="margin-top: 80px; text-align: center; background: rgba(255,255,255,0.02); padding: 60px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.05);">
+              <h3 style="font-size: 1.8rem; margin-bottom: 40px; color: #FFFFFF;">Why Audit Matters: The Foundation</h3>
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: left;">
+                  <div>
+                      <div style="width: 40px; height: 1px; background: #FFFFFF; margin-bottom: 20px;"></div>
+                      <h4 style="color: #FFFFFF; margin-bottom: 15px;">Navigate Uncharted Territory</h4>
+                      <p style="font-size: 0.95rem; color: rgba(255, 255, 255, 0.7);">Web3 projects operate in rapidly evolving markets. Audits provide a strategic compass.</p>
+                  </div>
+                  <div>
+                      <div style="width: 40px; height: 1px; background: #FFFFFF; margin-bottom: 20px;"></div>
+                      <h4 style="color: #FFFFFF; margin-bottom: 15px;">De-Risk Investment</h4>
+                      <p style="font-size: 0.95rem; color: rgba(255, 255, 255, 0.7);">Validates commercial viability and identifies potential roadblocks for founders and investors.</p>
+                  </div>
+                  <div>
+                      <div style="width: 40px; height: 1px; background: #FFFFFF; margin-bottom: 20px;"></div>
+                      <h4 style="color: #FFFFFF; margin-bottom: 15px;">Build for Sustainable Scale</h4>
+                      <p style="font-size: 0.95rem; color: rgba(255, 255, 255, 0.7);">Establishes the architectural blueprint for repeatable revenue generation.</p>
+                  </div>
+              </div>
+          </div>
+
+        </div>
+    </section>
+
+    <!-- 02. STRATEGY SECTION -->
+    <section id="strategy" class="section">
+        <div class="container">
+            <div class="service-header text-center" style="margin-bottom: 80px;">
+                <div class="subtitle-badge" style="border: 1px solid #F3D747 !important; color: #F3D747 !important; display: inline-block; margin-bottom: 24px;">Strategy</div>
+                <h2 class="section-title">Vision Before Execution.<br>Strategy Before Scale.</h2>
+                <p class="section-description">Strategic frameworks and commercial blueprints that transform vision into scalable revenue systems. Not generic playbooks, but architecture built for your market reality.</p>
+                <div style="margin-top: 32px;">
+                    <a href="contact.html" class="btn btn-large" style="background: #F3D747; color: #0D1733 !important; font-weight: 700; text-decoration: none;">Let's Talk</a>
+                </div>
+            </div>
+
+            <div class="strategy-types-grid horizontal-service-grid" style="display: grid; grid-template-columns: 1fr; gap: 20px;">
+                <div id="strat-market" class="glass-panel horizontal-strategy-box" style="display: flex; gap: 40px; padding: 40px; align-items: center;">
+                    <div style="font-size: 3rem; font-weight: 800; color: #F3D747; opacity: 0.5; line-height: 1;">1</div>
+                    <div>
+                        <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; color: #F3D747;">Market & Competitive Strategy Design</h3>
+                        <p style="margin: 0;">Define where you compete and how you win. We identify your market position, competitive edge, and strategic direction to reduce risk and create focus. The result is clear positioning and informed growth decisions.</p>
+                    </div>
+                </div>
+                <div id="strat-icp" class="glass-panel horizontal-strategy-box" style="display: flex; gap: 40px; padding: 40px; align-items: center;">
+                    <div style="font-size: 3rem; font-weight: 800; color: #F3D747; opacity: 0.5; line-height: 1;">2</div>
+                    <div>
+                        <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; color: #F3D747;">Ideal Customer Profile (ICP)</h3>
+                        <p style="margin: 0;">Define who you should sell to — and who you shouldn't. We structure your highest-value customer segments to improve targeting and conversion. The result is focused effort and higher-quality revenue.</p>
+                    </div>
+                </div>
+                <div id="strat-pricing" class="glass-panel horizontal-strategy-box" style="display: flex; gap: 40px; padding: 40px; align-items: center;">
+                    <div style="font-size: 3rem; font-weight: 800; color: #F3D747; opacity: 0.5; line-height: 1;">3</div>
+                    <div>
+                        <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; color: #F3D747;">Product & Pricing Structuring</h3>
+                        <p style="margin: 0;">Ensure your offering captures value effectively. We design pricing, packaging, and monetization models aligned with your market. The result is stronger positioning and improved profitability.</p>
+                    </div>
+                </div>
+                <div id="strat-custom" class="glass-panel horizontal-strategy-box" style="display: flex; gap: 40px; padding: 40px; align-items: center;">
+                    <div style="font-size: 3rem; font-weight: 800; color: #F3D747; opacity: 0.5; line-height: 1;">4</div>
+                    <div>
+                        <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; color: #F3D747;">Customized Commercial Strategy</h3>
+                        <p style="margin: 0;">Build the full commercial blueprint for growth. We connect market, customer, product, and revenue logic into one coherent system. The result is a clear, structured path to scalable revenue.</p>
+                    </div>
+                </div>
+                <div id="strat-sales" class="glass-panel horizontal-strategy-box" style="display: flex; gap: 40px; padding: 40px; align-items: center;">
+                    <div style="font-size: 3rem; font-weight: 800; color: #F3D747; opacity: 0.5; line-height: 1;">5</div>
+                    <div>
+                        <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; color: #F3D747;">Sales Strategy Development</h3>
+                        <p style="margin: 0;">Turn strategy into a functioning sales engine. We define how pipeline is built, managed, and converted into revenue. The result is a repeatable and measurable sales process.</p>
+                    </div>
+                </div>
+                <div id="strat-journey" class="glass-panel horizontal-strategy-box" style="display: flex; gap: 40px; padding: 40px; align-items: center;">
+                    <div style="font-size: 3rem; font-weight: 800; color: #F3D747; opacity: 0.5; line-height: 1;">6</div>
+                    <div>
+                        <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; color: #F3D747;">Customer Journey & Experience Strategy</h3>
+                        <p style="margin: 0;">Design how customers move from first touch to long-term value. We align touchpoints, messaging, and experience to improve conversion and retention. The result is stronger relationships and higher lifetime value.</p>
+                    </div>
+                </div>
+                <div id="strat-capability" class="glass-panel horizontal-strategy-box" style="display: flex; gap: 40px; padding: 40px; align-items: center;">
+                    <div style="font-size: 3rem; font-weight: 800; color: #F3D747; opacity: 0.5; line-height: 1;">7</div>
+                    <div>
+                        <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; color: #F3D747;">Commercial Capability & Alignment</h3>
+                        <p style="margin: 0;">Align teams, roles, and functions around revenue goals. We remove internal friction and ensure sales, marketing, and product work as one system. The result is faster and more effective execution.</p>
+                    </div>
+                </div>
+                <div id="strat-playbook" class="glass-panel horizontal-strategy-box" style="display: flex; gap: 40px; padding: 40px; align-items: center;">
+                    <div style="font-size: 3rem; font-weight: 800; color: #F3D747; opacity: 0.5; line-height: 1;">8</div>
+                    <div>
+                        <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; color: #F3D747;">Commercial Playbook Creation</h3>
+                        <p style="margin: 0;">Turn strategy into clear execution standards. We document processes, messaging, and workflows to ensure consistency. The result is scalable, repeatable performance across teams.</p>
+                    </div>
+                </div>
+                <div id="strat-event" class="glass-panel horizontal-strategy-box" style="display: flex; gap: 40px; padding: 40px; align-items: center;">
+                    <div style="font-size: 3rem; font-weight: 800; color: #F3D747; opacity: 0.5; line-height: 1;">9</div>
+                    <div>
+                        <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; color: #F3D747;">Event Commercial Strategy</h3>
+                        <p style="margin: 0;">Turn events into real revenue opportunities. We structure how events generate, qualify, and convert leads. The result is measurable ROI instead of passive visibility.</p>
+                    </div>
+                </div>
+                <div id="strat-fund" class="glass-panel horizontal-strategy-box" style="display: flex; gap: 40px; padding: 40px; align-items: center;">
+                    <div style="font-size: 3rem; font-weight: 800; color: #F3D747; opacity: 0.5; line-height: 1;">10</div>
+                    <div>
+                        <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; color: #F3D747;">Fundraising Commercial Readiness</h3>
+                        <p style="margin: 0;">Prepare your business to stand up to investor scrutiny. We strengthen your commercial narrative, structure, and credibility. The result is higher investor confidence and stronger funding outcomes.</p>
+                    </div>
+                </div>
+                <div id="strat-transform" class="glass-panel horizontal-strategy-box" style="display: flex; gap: 40px; padding: 40px; align-items: center;">
+                    <div style="font-size: 3rem; font-weight: 800; color: #F3D747; opacity: 0.5; line-height: 1;">11</div>
+                    <div>
+                        <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; color: #F3D747;">Commercial Transformation Strategy</h3>
+                        <p style="margin: 0;">Redesign your commercial model for the next stage of growth. We identify structural gaps and define how to evolve your organization. The result is a future-ready commercial foundation.</p>
+                    </div>
+                </div>
+                <div id="strat-revenue" class="glass-panel horizontal-strategy-box" style="display: flex; gap: 40px; padding: 40px; align-items: center;">
+                    <div style="font-size: 3rem; font-weight: 800; color: #F3D747; opacity: 0.5; line-height: 1;">12</div>
+                    <div>
+                        <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; color: #F3D747;">Revenue Model Design</h3>
+                        <p style="margin: 0;">Define how your business makes money — and scales it. We design sustainable revenue streams and pricing logic aligned with your product and market. The result is a scalable and profitable model.</p>
+                    </div>
+                </div>
+                <div id="strat-pipeline" class="glass-panel horizontal-strategy-box" style="display: flex; gap: 40px; padding: 40px; align-items: center;">
+                    <div style="font-size: 3rem; font-weight: 800; color: #F3D747; opacity: 0.5; line-height: 1;">13</div>
+                    <div>
+                        <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; color: #F3D747;">Pipeline & Demand Engine Strategy</h3>
+                        <p style="margin: 0;">Build a consistent and predictable flow of opportunities. We design systems for generating and converting qualified demand. The result is a reliable pipeline that drives revenue growth.</p>
+                    </div>
+                </div>
+                <div id="strat-partner" class="glass-panel horizontal-strategy-box" style="display: flex; gap: 40px; padding: 40px; align-items: center;">
+                    <div style="font-size: 3rem; font-weight: 800; color: #F3D747; opacity: 0.5; line-height: 1;">14</div>
+                    <div>
+                        <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; color: #F3D747;">Partnership & Ecosystem Strategy</h3>
+                        <p style="margin: 0;">Leverage partnerships to accelerate growth. We identify and structure high-value collaborations and distribution channels. The result is expanded reach and faster market access.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 80px; text-align: center; background: rgba(255,255,255,0.02); padding: 60px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.05);">
+                <h3 style="font-size: 1.8rem; margin-bottom: 40px; color: #FFFFFF;">Why Structured Strategy Matters: The Blueprint</h3>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: left;">
+                    <div>
+                        <div style="width: 40px; height: 1px; background: #F3D747; margin-bottom: 20px;"></div>
+                        <h4 style="color: #FFFFFF; margin-bottom: 15px;">Unify Commercial Systems</h4>
+                        <p style="font-size: 0.95rem; color: rgba(255, 255, 255, 0.7);">Integrates positioning, GTM execution, and sales strategy into a coherent system.</p>
+                    </div>
+                    <div>
+                        <div style="width: 40px; height: 1px; background: #F3D747; margin-bottom: 20px;"></div>
+                        <h4 style="color: #FFFFFF; margin-bottom: 15px;">Engineer Predictable Growth</h4>
+                        <p style="font-size: 0.95rem; color: rgba(255, 255, 255, 0.7);">Transforms reactive revenue generation into an engineered, credible system.</p>
+                    </div>
+                    <div>
+                        <div style="width: 40px; height: 1px; background: #F3D747; margin-bottom: 20px;"></div>
+                        <h4 style="color: #FFFFFF; margin-bottom: 15px;">Navigate with Clarity</h4>
+                        <p style="font-size: 0.95rem; color: rgba(255, 255, 255, 0.7);">Provides a clear roadmap for market entry, team alignment, and Intentional direction.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 03. EXECUTION SECTION -->
+    <section id="execution" class="section bg-secondary">
+        <div class="container">
+            <div class="service-header text-center" style="margin-bottom: 80px;">
+                <div class="subtitle-badge" style="border: 1px solid #FD8BD1 !important; color: #FD8BD1 !important; display: inline-block; margin-bottom: 24px;">Execution</div>
+                <h2 class="section-title">Hands-On Growth.<br>On Demand.</h2>
+                <p class="section-description">We act as your embedded execution partner, providing senior commercial talent that executes alongside you until the system runs without us.</p>
+                <div style="margin-top: 32px;">
+                    <a href="contact.html" class="btn btn-primary btn-large" style="color: #0D1733 !important; font-weight: 700;">Let's Talk</a>
+                </div>
+            </div>
+
+            <div class="execution-types-grid horizontal-service-grid" style="display: grid; grid-template-columns: 1fr; gap: 20px; margin-bottom: 60px;">
+                <div id="exec-fractional" class="glass-panel horizontal-execution-box" style="display: flex; gap: 40px; padding: 40px; align-items: center;">
+                    <div style="font-size: 3rem; font-weight: 800; color: #FFFFFF; opacity: 0.5; line-height: 1;">1</div>
+                    <div>
+                        <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; color: #FFFFFF;">Fractional Commercial Leadership</h3>
+                        <p style="margin: 0;">Part-time and project-based CCO, Head of Sales or CRO — providing senior expertise, guiding strategy, and supporting execution without full-time overhead.</p>
+                    </div>
+                </div>
+                <div id="exec-growth" class="glass-panel horizontal-execution-box" style="display: flex; gap: 40px; padding: 40px; align-items: center;">
+                    <div style="font-size: 3rem; font-weight: 800; color: #FFFFFF; opacity: 0.5; line-height: 1;">2</div>
+                    <div>
+                        <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; color: #FFFFFF;">Growth & BD Engine</h3>
+                        <p style="margin: 0;">Dedicated SDR’s and BD reps embedded per your need, focused on pipeline growth and partnerships.</p>
+                    </div>
+                </div>
+                <div id="exec-coaching" class="glass-panel horizontal-execution-box" style="display: flex; gap: 40px; padding: 40px; align-items: center;">
+                    <div style="font-size: 3rem; font-weight: 800; color: #FFFFFF; opacity: 0.5; line-height: 1;">3</div>
+                    <div>
+                        <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; color: #FFFFFF;">Sales Coaching</h3>
+                        <p style="margin: 0;">Individual coaching for salespeople and sales teams that increases capability, removes sales obstacles, and supports leadership goals.</p>
+                    </div>
+                </div>
+            </div>
+
+          <div style="margin-top: 80px; text-align: center; background: rgba(255,255,255,0.02); padding: 60px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.05);">
+              <h3 style="font-size: 1.8rem; margin-bottom: 40px; color: #FFFFFF;">Why Our Talent Pool Matters: Agile Sales</h3>
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: left;">
+                  <div>
+                      <div style="width: 40px; height: 1px; background: #FD8BD1; margin-bottom: 20px;"></div>
+                      <h4 style="margin-bottom: 15px; color: #FFFFFF;">Mitigate Cost & Risk</h4>
+                      <p style="font-size: 0.95rem; color: rgba(255, 255, 255, 0.7);">Avoid the high costs and risks of full-time hires for early-stage projects. Access elite talent only when you need it.</p>
+                  </div>
+                  <div>
+                      <div style="width: 40px; height: 1px; background: #FD8BD1; margin-bottom: 20px;"></div>
+                      <h4 style="margin-bottom: 15px; color: #FFFFFF;">Targeted Expertise</h4>
+                      <p style="font-size: 0.95rem; color: rgba(255, 255, 255, 0.7);">Hit specific growth targets or fix commercial challenges with precise skill sets for precise outcomes.</p>
+                  </div>
+                  <div>
+                      <div style="width: 40px; height: 1px; background: #FD8BD1; margin-bottom: 20px;"></div>
+                      <h4 style="margin-bottom: 15px; color: #FFFFFF;">Monitored & Managed</h4>
+                      <p style="font-size: 0.95rem; color: rgba(255, 255, 255, 0.7);">We actively monitor and manage the delivery of our talent, ensuring consistent performance and adherence to frameworks.</p>
+                  </div>
+              </div>
+          </div>
+
+        </div>
+    </section>
+
+    <section id="process" class="section process-section" style="padding: 100px 0;">
+        <div class="process-video-wrapper">
+            <video autoplay loop muted playsinline id="process-bg-video">
+                <source src="Assets2/Luxury_Glass_Effect_Video_Creation.mp4" type="video/mp4">
+            </video>
+            <div class="process-video-overlay"></div>
+        </div>
+        <div class="container relative-z">
+            <div class="service-header text-center">
+                <div class="subtitle-badge" style="border: 1px solid #FD8BD1 !important; color: #FD8BD1 !important; display: inline-block; margin-bottom: 24px;">OUR PROCESS</div>
+                <h2 class="section-title text-white">How We Work</h2>
+                <p class="section-description text-white">From the first conversation to a fully operational commercial engine.</p>
+            </div>
+
+            <div class="pipeline-container">
+                <div class="process-step">
+                    <div class="step-marker"></div>
+                    <span class="step-number">1</span>
+                    <h4>Assess</h4>
+                    <p>We audit your current commercial architecture to find gaps and opportunities.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-marker"></div>
+                    <span class="step-number">2</span>
+                    <h4>Align</h4>
+                    <p>We build a custom strategy aligning product, sales, and market.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-marker"></div>
+                    <span class="step-number">3</span>
+                    <h4>Architect</h4>
+                    <p>We design the playbooks, processes, and systems for scale.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-marker"></div>
+                    <span class="step-number">4</span>
+                    <h4>Accelerate</h4>
+                    <p>We embed our talent to execute, train, and drive revenue.</p>
+                </div>
+            </div>
+
+            <div class="cta-container">
+                <h2>Let's Build Your Growth Engine</h2>
+                <p>Book a 15-minute growth briefing with our team.</p>
+                <div class="hero-actions" style="margin-top: 24px;">
+                    <a href="contact.html" class="btn btn-primary btn-large">Let's Talk</a>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                <p>&copy; 2026 Aava Growth. Partners in your growth.</p>
+                <div style="display: flex; gap: 30px;">
+                    <a href="mailto:hello@aavagrowth.com" class="footer-link">hello@aavagrowth.com</a>
+                    <a href="https://linkedin.com" target="_blank" class="footer-link">LinkedIn</a>
+                </div>
+            </div>
+        </footer>
+    </section>
+    <script src="script.js"></script>
+</body>
+
+</html>

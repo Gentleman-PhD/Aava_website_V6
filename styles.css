@@ -1,0 +1,2179 @@
+:root {
+    /* LIGHT CORPORATE DASHBOARD BACKGROUNDS */
+    --bg-primary: #FFFFFF;
+    /* Pure white */
+    --bg-secondary: #F8F9FA;
+    /* Very light gray for alternate sections */
+    --bg-tertiary: #FFFFFF;
+    /* White for cards */
+
+    /* PRIMARY ACCENTS */
+    --primary-400: #FD8BD1;
+    /* Hover states / Brand Pink */
+    --primary-500: #FD8BD1;
+    /* Main base - Brand Pink */
+    --primary-600: #E06BB4;
+    /* Active buttons (darker pink) */
+    --secondary-accent: #0D1733;
+    /* Deep navy accent */
+
+    /* TEXT COLORS */
+    --text-main: #0D1733;
+    --text-muted: rgba(13, 23, 51, 0.75);
+
+    /* FONTS */
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* SPACING & SIZING */
+    --section-padding: 100px 24px;
+    --container-max-width: 1200px;
+    --nav-height: clamp(90px, 10vh, 120px); /* Dynamically scales the height allowance */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* TYPOGRAPHY */
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 24px;
+}
+
+p {
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    font-size: clamp(1rem, 1.1vw, 1.125rem);
+}
+
+/* COMPONENTS */
+.container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.section {
+    padding: clamp(60px, 8vh, 120px) 24px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Targets all sections except the hero */
+section:not(#hero) {
+    /* Forces the section to fit exactly in the remaining screen space */
+    min-height: calc(100vh - var(--nav-height)); 
+
+    /* Prevents the sticky navbar from covering the top of the section when clicking anchor links */
+    scroll-margin-top: var(--nav-height); 
+
+    /* Centers the content dynamically in the newly calculated space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    /* Fluid padding to ensure content breathes on all screen sizes */
+    padding: clamp(40px, 6vh, 80px) clamp(24px, 6vw, 80px);
+}
+
+.section-header {
+    margin-bottom: 60px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-white {
+    color: #fff !important;
+}
+
+.text-dark {
+    color: var(--text-main) !important;
+}
+
+.badge-alert {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary-400);
+    border-color: rgba(236, 72, 153, 0.4);
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    color: var(--text-main);
+    max-width: 900px;
+    margin: 0 auto 24px; /* Default margin-bottom, margin-top will be 0 when below badge */
+    letter-spacing: -0.5px;
+}
+
+.subtitle-badge {
+    display: inline-block;
+    padding: 8px 20px; /* Precise internal spacing */
+    font-size: clamp(0.7rem, 1.2vw, 0.85rem); /* Identical fluid sizing */
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 50px; /* Perfect oval shape */
+    border: 1px solid #FD8BD1 !important;
+    color: #FD8BD1 !important;
+    margin-bottom: 32px; /* This locks the distance to the text below it */
+    line-height: 1;
+}
+
+.section-subtitle {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 16px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-description {
+    max-width: clamp(600px, 60vw, 800px);
+    margin: 0 auto;
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+}
+
+.glass-panel {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(13, 23, 51, 0.1);
+    border-radius: 12px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+    color: #fff;
+    border: none;
+    box-shadow: 0 4px 14px rgba(13, 23, 51, 0.15);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--primary-600), var(--primary-400));
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(13, 23, 51, 0.2);
+}
+
+.btn-large {
+    padding: 18px 40px;
+    font-size: 1.2rem;
+    border-radius: 12px;
+}
+
+/* NAVBAR STRUCURE */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 15px 0;
+    transition: all 0.4s ease;
+    background: transparent;
+    border: none;
+    min-height: var(--nav-height);
+}
+
+.navbar.scrolled {
+    background: rgba(13, 23, 51, 0.45);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding-left: clamp(24px, 6vw, 80px);
+    padding-right: clamp(24px, 6vw, 80px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    height: 80px;
+    width: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.nav-logo.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav-links {
+    display: none;
+    /* Mobile hidden by default, shown on larger screens */
+    gap: 32px;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 32px;
+}
+
+@media (min-width: 900px) {
+    .nav-links {
+        display: flex;
+    }
+}
+
+.nav-links a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-500);
+}
+
+/* --- HERO SECTION (FULL SCREEN REFACTOR) --- */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.hero-bg-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(13, 23, 51, 0.8) 0%, rgba(13, 23, 51, 0.4) 100%);
+    z-index: 1;
+}
+
+.hero-content-container {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    /* This pulls it to the left edge with a safe breathing room margin */
+    padding-left: clamp(24px, 6vw, 80px); 
+    margin: 0;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* THIS FORCES EVERYTHING LEFT */
+    text-align: left;
+    height: 100%;
+    max-width: 700px; /* Constrains text width naturally */
+}
+
+.hero-badge {
+    display: inline-block;
+    border: 1px solid #FD8BD1 !important;
+    border-radius: 50px;
+    padding: 8px 16px;
+    font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #FD8BD1 !important;
+    margin-bottom: 40px;
+    font-family: var(--font-heading);
+    align-self: flex-start; /* Ensure badge doesn't stretch */
+}
+
+.hero-logo-large {
+    display: block;
+    margin: 0 0 30px 0;
+    max-width: clamp(250px, 40vw, 500px);
+    height: auto;
+}
+
+.hero-text-block {
+    max-width: clamp(400px, 45vw, 650px);
+}
+
+.hero-description {
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    color: #FFFFFF;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    color: #FFFFFF !important; /* Ensure visibility on video */
+}
+
+.hero-description p {
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+
+/* STEP 2: THE PROBLEM SECTION */
+.problem-section {
+    position: relative;
+    /* The white gradient acts as an 85% opacity overlay to fade the image */
+    background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('Assets2/pics/jeremy.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Ensure text color remains dark */
+    color: #0D1733; 
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: visible; /* Ensure icon isn't clipped */
+}
+
+/* Fix contrast and standardize badge for white background */
+.problem-section .section-title,
+.problem-section .section-description {
+    color: #0D1733 !important;
+}
+
+.problem-section .section-title {
+    margin-top: 0 !important;
+}
+
+
+.problem-section .container {
+    position: relative;
+    z-index: 2; /* Content above video and overlay */
+}
+
+.problem-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    filter: saturate(0); /* Zero saturation */
+    opacity: 0.6; /* Adjust opacity for better text contrast if needed */
+}
+
+.video-fade-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    pointer-events: none;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(20px, 3vw, 40px);
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid #0D1733;
+    color: #0D1733;
+    border-radius: 16px;
+    padding: 40px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    box-shadow: 0 10px 30px rgba(13, 23, 51, 0.08);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-8px); /* Creates the "pop-up" lift effect */
+    border-color: #F3D747; /* Changes border to the requested yellow/gold */
+    box-shadow: 0 10px 20px rgba(13, 23, 51, 0.1); /* Adds depth when lifted */
+}
+
+/* BANNER WITH IMAGE */
+.banner-with-image {
+    padding: 0;
+    display: grid;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-image-wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.banner-growth-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center;
+    display: block;
+    border: 2px solid var(--primary-500);
+}
+
+.banner-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.7) 40%, rgba(255, 255, 255, 0.0) 100%);
+}
+
+.banner-content-wrapper {
+    width: 100%;
+    max-width: 100%; /* Ensure text uses full width */
+    position: relative;
+    z-index: 2;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    gap: 40px; /* Space between icon and text */
+    border: 1px solid #0D1733 !important;
+    background-color: #F3D747 !important;
+    background: #F3D747 !important;
+}
+
+.banner-content-wrapper:hover {
+    transform: none !important;
+    border-color: #0D1733 !important;
+    box-shadow: none !important;
+}
+.banner-custom-icon {
+    height: 48px !important;
+    width: auto !important;
+    max-width: 48px;
+    object-fit: contain;
+    flex-shrink: 0;
+    margin-top: 4px;
+}
+
+.banner-content-wrapper p {
+    color: #0D1733;
+    font-size: 1.125rem;
+    margin: 0;
+}
+
+.banner-content-wrapper p strong {
+    font-weight: 700;
+    color: #0D1733;
+}
+
+.banner-icon {
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+@media (max-width: 900px) {
+    .stats-grid,
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .banner-content-wrapper {
+        max-width: 100%;
+        padding: 32px 24px;
+    }
+
+    .banner-image-overlay {
+        background: linear-gradient(to right, rgba(15, 15, 26, 0.98) 20%, rgba(15, 15, 26, 0.85) 60%, rgba(15, 15, 26, 0.4) 100%);
+    }
+}
+
+/* STEP 3: CORE SERVICES */
+.services-section {
+    background-color: #0D1733;
+    position: relative;
+    padding: clamp(60px, 8vh, 120px) 24px;
+}
+
+.services-section .section-title,
+.services-section .section-description {
+    color: #FFFFFF !important;
+}
+
+.services-section .section-title {
+    margin-top: 0 !important;
+}
+
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(20px, 3vw, 40px);
+}
+
+/* 3D FLIP CARDS */
+.flip-card {
+    background-color: transparent;
+    height: 420px; /* Increased from 380px to give text room to wrap on laptops */
+    perspective: 1000px;
+    border-radius: 16px;
+    width: 100%;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 2px solid var(--secondary-accent);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 10px 30px rgba(13, 23, 51, 0.05);
+    overflow: hidden;
+}
+
+.service-card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1; /* Puts the image in the background */
+    filter: brightness(0.7); /* Darker tint for text readability */
+    margin: 0;
+    padding: 0;
+}
+
+.card-content-overlay {
+    position: relative;
+    z-index: 2; /* Pulls the text in front of the image */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Pushes the title exactly to the top */
+    padding: 32px 24px;
+}
+
+.flip-card-front h3, .flip-card-back h3 {
+    position: absolute;
+    top: 32px;
+    left: 0;
+    width: 100%; /* Spans the full width of the card */
+    text-align: center; /* Perfectly centers the text horizontally */
+    margin: 0;
+    z-index: 10;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Center the main text on the back */
+.flip-card-back {
+    position: relative;
+    display: flex;
+    align-items: center; /* Centers vertically */
+    justify-content: center; /* Centers horizontally */
+    padding: 80px 24px 24px 24px; /* Leaves room for the absolute title at the top */
+    text-align: center;
+}
+
+/* THEME CLASSES */
+
+/* Audit Theme (Card 1) */
+.audit-theme .flip-card-front, .audit-theme .flip-card-back {
+    border: 2px solid #FFFFFF;
+}
+/* Front title is White */
+.audit-theme .flip-card-front h3 {
+    color: #FFFFFF;
+}
+/* Back is White background, Dark Navy text & title */
+.audit-theme .flip-card-back {
+    background-color: #FFFFFF;
+    color: #0D1733;
+}
+.audit-theme .flip-card-back h3 {
+    color: #0D1733;
+}
+
+/* Strategy Theme (Card 2) */
+.strategy-theme .flip-card-front, .strategy-theme .flip-card-back {
+    border: 2px solid #F3D747;
+}
+/* Front title is Yellow */
+.strategy-theme .flip-card-front h3 {
+    color: #F3D747;
+}
+/* Back is White background, Dark Navy text & title */
+.strategy-theme .flip-card-back {
+    background-color: #FFFFFF !important;
+    color: #0D1733;
+}
+.strategy-theme .flip-card-back h3 {
+    color: #0D1733;
+}
+
+/* Execution Theme (Card 3) */
+.execution-theme .flip-card-front, .execution-theme .flip-card-back {
+    border: 2px solid #FD8BD1;
+}
+/* Front title is Pink */
+.execution-theme .flip-card-front h3 {
+    color: #FD8BD1;
+}
+/* Back is White background, Dark Navy text & title */
+.execution-theme .flip-card-back {
+    background-color: #FFFFFF !important;
+    color: #0D1733;
+}
+.execution-theme .flip-card-back h3 {
+    color: #0D1733;
+}
+
+.flip-card-front h3 {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    color: var(--text-main);
+}
+
+.card-indicator {
+    font-size: 0.875rem;
+    color: var(--primary-500);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: auto;
+    opacity: 0.8;
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.flip-card-back h3 {
+    color: var(--text-main);
+    margin-bottom: 24px;
+}
+
+.flip-card-back p {
+    /* Fluid typography to prevent overflow when columns squish */
+    font-size: clamp(0.95rem, 1.2vw, 1.125rem);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Specific Card Stylings mimicking PDF colors & Web3 Images */
+.audit-front {
+    background: linear-gradient(to top, rgba(5, 5, 10, 0.9), rgba(5, 5, 10, 0.3)), url('Assets2/audit_bg.png') center/cover no-repeat !important;
+}
+
+.strategy-front {
+    background: linear-gradient(to top, rgba(5, 5, 10, 0.9), rgba(5, 5, 10, 0.3)), url('Assets2/strategy_bg.png') center/cover no-repeat !important;
+}
+
+.strategy-front,
+.strategy-back {
+    border-color: rgba(234, 179, 8, 0.5);
+    box-shadow: inset 0 0 20px rgba(234, 179, 8, 0.1);
+}
+
+.execution-front {
+    background: linear-gradient(to top, rgba(5, 5, 10, 0.9), rgba(5, 5, 10, 0.3)), url('Assets2/execution_bg.png') center/cover no-repeat !important;
+}
+
+.execution-front,
+.execution-back {
+    border-color: rgba(244, 114, 182, 0.5);
+    box-shadow: inset 0 0 20px rgba(244, 114, 182, 0.1);
+}
+
+@media (max-width: 1200px) {
+    .services-grid {
+        gap: 20px; /* Shrinks the space between cards to give cards more width */
+    }
+    .flip-card-back {
+        padding: 70px 16px 16px 16px; /* Reduces side padding to give text more horizontal room */
+    }
+}
+
+@media (max-width: 900px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    .flip-card {
+        height: 350px; /* Cards can be shorter on mobile because they have the full width of the phone */
+    }
+    .flip-card-back {
+        padding: 80px 24px 24px 24px; /* Restores comfortable padding for full-width mobile cards */
+    }
+}
+
+/* STEP 4: THE AAVA DIFFERENCE */
+.difference-section {
+    background-color: var(--bg-secondary);
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.text-left {
+    text-align: left;
+    margin-left: 0;
+}
+
+.split-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(20px, 3vw, 60px);
+    align-items: flex-start;
+}
+
+/* Left Column - Metrics */
+.metrics-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.metric-card {
+    padding: 32px;
+    border-radius: 12px;
+    border: 1px solid #0D1733;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.metric-card:hover {
+    transform: translateY(-8px);
+    border-color: #F3D747;
+    box-shadow: 0 10px 20px rgba(13, 23, 51, 0.1);
+}
+
+.metric-pink {
+    background: rgba(253, 139, 209, 0.08);
+    border-left: 4px solid var(--primary-500);
+}
+
+.metric-pink .metric-number,
+.metric-pink .metric-label {
+    color: var(--text-main);
+}
+
+.metric-yellow {
+    background: rgba(13, 23, 51, 0.05);
+    border-left: 4px solid var(--secondary-accent);
+}
+
+.metric-yellow .metric-number,
+.metric-yellow .metric-label {
+    color: var(--text-main);
+}
+
+.metric-white {
+    background: #FFFFFF;
+    border-left: 4px solid var(--primary-500);
+    border-right: 1px solid rgba(13, 23, 51, 0.1);
+    border-top: 1px solid rgba(13, 23, 51, 0.1);
+    border-bottom: 1px solid rgba(13, 23, 51, 0.1);
+}
+
+.metric-white .metric-number {
+    color: var(--text-main);
+}
+
+.metric-white .metric-label {
+    color: var(--text-muted);
+}
+
+.stat-number {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    color: var(--text-main);
+    line-height: 1;
+    margin-bottom: 8px;
+    text-shadow: none;
+}
+
+.stat-accent {
+    color: var(--primary-500);
+    text-shadow: none;
+}
+
+.metric-number {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 12px;
+    color: var(--text-main);
+}
+
+.metric-label {
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-bottom: 0;
+    color: var(--text-muted);
+}
+
+.founder-quote {
+    margin-top: 60px;
+    padding-left: 24px;
+    border-left: 2px solid var(--primary-500);
+    max-width: 900px;
+}
+
+.founder-quote blockquote {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    line-height: 1.6;
+}
+
+.quote-author {
+    font-weight: 500;
+    color: var(--text-main);
+}
+
+/* Right Column - Differentiators Grid */
+.differentiators-column {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.diff-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 2px solid var(--secondary-accent);
+    border-radius: 12px;
+    padding: 32px 24px;
+    transition: transform 0.3s ease, background 0.3s ease;
+    box-shadow: 0 10px 30px rgba(13, 23, 51, 0.05);
+}
+
+.diff-card:hover {
+    transform: translateY(-4px);
+    background: #FFFFFF;
+    border-color: var(--primary-500);
+}
+
+.diff-card h4 {
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+    line-height: 1.3;
+}
+
+.diff-card p {
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+@media (max-width: 900px) {
+    .split-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .differentiators-column {
+        grid-template-columns: 1fr;
+        margin-top: 40px;
+    }
+}
+
+/* SECTION 6: PROCESS VIDEO BACKGROUND */
+.process-section {
+    background: #0D1733 !important; /* Solid fallback behind the video */
+    border-top: none !important; /* Keeps the transition seamless */
+    position: relative;
+    z-index: 1;
+    overflow: hidden; /* Ensures the video doesn't spill out */
+    padding-bottom: 120px !important; /* Room for the absolutely-positioned footer */
+}
+
+/* Ensure text sits on top of the video */
+.process-section .container {
+    position: relative;
+    z-index: 10;
+}
+
+/* Restore and Expand the Video Wrapper */
+.process-video-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    display: block !important; /* Overrides any previous display:none */
+    pointer-events: none; /* Stops the video from intercepting button clicks */
+}
+
+/* Native Video Styling */
+#process-bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Zooms the video to fill the space without stretching */
+    display: block;
+}
+
+/* Gradient Overlay (Dark Navy Fade to Tint) */
+.process-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Fades from solid navy at the top to a slight tint at the bottom */
+    background: linear-gradient(to bottom, #0D1733 0%, rgba(13, 23, 51, 0.4) 30%, rgba(13, 23, 51, 0.8) 100%);
+    z-index: 1;
+}
+
+/* Make timeline text white */
+.process-section .section-title,
+.process-section .process-step h4,
+.process-section .process-step p,
+.process-section .step-number {
+    color: #FFFFFF !important;
+}
+
+.pipeline-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 80px 0;
+    position: relative;
+}
+
+/* Glowing Connecting Line */
+.pipeline-container::before {
+    content: '';
+    position: absolute;
+    top: 24px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-500) 0%, var(--secondary-accent) 50%, rgba(255, 255, 255, 0.2) 100%);
+    z-index: 0;
+}
+
+.process-step {
+    position: relative;
+    z-index: 10;
+    width: 18%;
+    padding-top: 60px;
+}
+
+.step-marker {
+    position: absolute;
+    top: 16px;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    background-color: var(--bg-primary);
+    border: 3px solid var(--primary-500);
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(236, 72, 153, 0.8);
+}
+
+.step-number {
+    font-family: var(--font-heading);
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.process-step h4 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    color: #fff;
+}
+
+/* Highly Transparent Glass for CTA */
+.cta-container {
+    background: rgba(13, 23, 51, 0.15) !important; /* Lighter tint */
+    backdrop-filter: blur(4px) !important; /* Less blur to see video clearly */
+    -webkit-backdrop-filter: blur(4px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    text-align: center;
+    margin: 80px auto 60px;
+    padding: 40px 32px;
+    max-width: 800px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 20;
+}
+
+/* Reduce the massive heading size inside the CTA */
+.cta-container h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem) !important;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+/* Ensure CTA description text isn't too large */
+.cta-container p {
+    font-size: 1.1rem !important;
+    margin-bottom: 0;
+}
+
+/* Adjust the button margin inside the smaller box */
+.cta-container .hero-actions {
+    margin-top: 24px !important;
+}
+
+/* Force CTA text to White */
+.cta-container h2,
+.cta-container p,
+.cta-container .text-dark {
+    color: #FFFFFF !important;
+}
+
+/* Lock Footer to the Absolute Bottom and Stretch Edge-to-Edge */
+.footer {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 32px 24px !important;
+    box-sizing: border-box !important;
+
+    /* Glassmorphism styles */
+    background: rgba(13, 23, 51, 0.15) !important;
+    backdrop-filter: blur(4px) !important;
+    -webkit-backdrop-filter: blur(4px) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+    z-index: 20;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 0.875rem;
+}
+
+/* Force Footer text to White */
+.footer p,
+.footer .footer-link {
+    color: #FFFFFF !important;
+}
+
+.footer-link {
+    color: var(--primary-400);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+@media (max-width: 900px) {
+    .pipeline-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .pipeline-container::before {
+        top: 0;
+        left: 24px;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(180deg, var(--primary-500) 0%, var(--secondary-accent) 50%, rgba(255, 255, 255, 0.2) 100%);
+    }
+
+    .process-step {
+        width: 100%;
+        padding-top: 0;
+        padding-left: 60px;
+    }
+
+    .step-marker {
+        top: 4px;
+        left: 17px;
+    }
+}
+
+/* STEP 6: ABOUT US */
+.about-section {
+    background-color: var(--bg-secondary);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.about-split {
+    align-items: center;
+}
+
+.about-image-wrapper {
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5), 0 20px 40px rgba(0, 0, 0, 0.4);
+    aspect-ratio: 4/5;
+}
+
+.about-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.philosophy-card {
+    padding: 32px;
+    border-left: 4px solid var(--primary-500);
+    background: rgba(26, 26, 46, 0.5);
+    border-radius: 0 16px 16px 0;
+}
+
+@media (max-width: 900px) {
+    .about-split {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-image-wrapper {
+        aspect-ratio: 1/1;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+/* WHO IS AAVA FOR - INTERACTIVE LIST SECTION */
+.who-for-section {
+    background-color: #FFFFFF !important;
+    position: relative;
+    z-index: 1;
+}
+
+.who-for-section .subtitle-badge {
+    color: #FD8BD1 !important;
+    border: 1px solid #FD8BD1 !important;
+    background: transparent;
+}
+
+.who-for-section .section-title {
+    color: #0D1733 !important;
+}
+
+.who-for-layout {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 120px !important; /* Increased from 60px for more breathing room */
+    min-height: 550px !important; /* Increased to help the section fill the screen */
+}
+
+.who-for-list {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+.who-for-item {
+    border-bottom: 1px solid rgba(13, 23, 51, 0.1);
+    padding: 24px 0;
+    cursor: pointer;
+    position: static; /* Critical: allows absolute child to target the layout wrapper */
+}
+
+.who-for-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+    color: #0D1733;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s ease;
+    margin: 0;
+}
+
+.plus-icon {
+    font-size: 2rem;
+    color: #FD8BD1;
+    font-weight: 400;
+    transition: transform 0.3s ease;
+    line-height: 1;
+}
+
+/* Right Side Content Panel */
+.who-for-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    padding: 40px;
+    border-left: 4px solid #FD8BD1;
+    border-radius: 0 16px 16px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 10;
+    /* Base image rules */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.bg-founders {
+    background-image: linear-gradient(rgba(248, 249, 250, 0.85), rgba(248, 249, 250, 0.85)), url('Assets2/pics/Founders.jpeg') !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.bg-web3 {
+    background-image: linear-gradient(rgba(248, 249, 250, 0.85), rgba(248, 249, 250, 0.85)), url('Assets2/pics/gabriel-alenius-EXvZCn-oCTY-unsplash.jpg') !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.bg-companies {
+    background-image: linear-gradient(rgba(248, 249, 250, 0.85), rgba(248, 249, 250, 0.85)), url('Assets2/pics/Companies.jpeg') !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.bg-post {
+    background-image: linear-gradient(rgba(248, 249, 250, 0.65), rgba(248, 249, 250, 0.65)), url('Assets2/pics/Post.jpeg') !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.bg-vcs {
+    background-image: linear-gradient(rgba(248, 249, 250, 0.65), rgba(248, 249, 250, 0.65)), url('Assets2/pics/VC2.jpeg') !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.who-for-content h4 {
+    color: #0D1733;
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+}
+
+.who-for-content p {
+    color: var(--text-muted);
+    font-size: 1.125rem;
+    margin: 0;
+}
+
+/* Default Placeholder Panel */
+.who-for-default {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background-image: url('Assets2/pics/soil.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0 16px 16px 0;
+    transition: opacity 0.3s ease;
+    z-index: 5; /* Sits below the hover content panels */
+}
+
+/* HOVER INTERACTIONS */
+.who-for-item:hover .who-for-title { color: #FD8BD1; }
+.who-for-item:hover .plus-icon { transform: rotate(45deg); } /* Turns + into x */
+.who-for-item:hover .who-for-content { opacity: 1; visibility: visible; transform: translateX(0); }
+
+/* Hide the default panel when ANY item is hovered */
+.who-for-layout:hover .who-for-default { opacity: 0; visibility: hidden; }
+
+/* GEOMETRIC TRANSITION EFFECT */
+.problem-section, .services-section {
+    position: relative;
+}
+
+.transition-icon {
+    position: absolute;
+    right: clamp(24px, 8vw, 120px); /* Aligns nicely with global margins */
+    width: clamp(60px, 8vw, 100px); /* Scales cleanly across devices */
+    height: auto;
+    z-index: 10;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+/* Top icon (Dark) - Sticks to the absolute bottom of the white section */
+.transition-icon-top {
+    position: absolute;
+    bottom: 0;
+    right: clamp(24px, 8vw, 120px); /* Must match the white icon's right alignment */
+    width: clamp(60px, 8vw, 100px); /* Must match the white icon's size */
+    z-index: 999; /* Forces it above all backgrounds */
+    display: block;
+    margin: 0;
+    padding: 0;
+    /* Mirrored vertically to create a perfect lock with the bottom one */
+    transform: scaleY(-1); 
+}
+
+/* Bottom icon (White) - Sticks to the absolute top of the dark section */
+.transition-icon-bottom {
+    top: 0;
+}
+
+/* RESPONSIVE MEDIA QUERIES FOR SECTION 4 */
+
+/* Optimize for Laptops (1024px to 1200px) */
+@media (max-width: 1200px) {
+    .who-for-content, .who-for-default {
+        padding: 24px; /* Reduces padding to give text more space */
+    }
+    .who-for-content h4 {
+        font-size: 1.25rem;
+    }
+    .who-for-content p {
+        font-size: 1rem;
+    }
+}
+
+/* Optimize for Mobile and Tablet (Under 900px) - Accordion Conversion */
+@media (max-width: 900px) {
+    .who-for-layout {
+        display: block; /* Turns off side-by-side flexbox */
+        min-height: auto;
+    }
+
+    .who-for-list {
+        width: 100%; /* List takes full width of the phone */
+    }
+
+    .who-for-default {
+        display: none !important; /* Hide the default image on mobile to save space */
+    }
+
+    /* Convert the content panel into a collapsed accordion drawer */
+    .who-for-content {
+        position: relative; /* Removes it from absolute right-side positioning */
+        width: 100%;
+        height: 0; /* Collapsed by default */
+        padding: 0 24px;
+        opacity: 0;
+        visibility: hidden;
+        border-left: none;
+        border-top: 4px solid #FD8BD1; /* Move the pink accent line to the top */
+        border-radius: 0 0 16px 16px;
+        margin-top: 0;
+        overflow: hidden; /* Crucial to hide text while collapsed */
+        transition: all 0.3s ease;
+    }
+
+    /* Expand the drawer when tapped/hovered */
+    .who-for-item:hover .who-for-content,
+    .who-for-item:active .who-for-content {
+        height: auto;
+        min-height: 250px; /* Gives the background picture room to show */
+        padding: 32px 24px;
+        margin-top: 16px;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* RESPONSIVE MEDIA QUERIES FOR SECTION 4 */
+
+/* Optimize for Laptops (1024px to 1200px) */
+@media (max-width: 1200px) {
+    .who-for-content, .who-for-default {
+        padding: 24px; /* Reduces padding to give text more space */
+    }
+    .who-for-content h4 {
+        font-size: 1.25rem;
+    }
+    .who-for-content p {
+        font-size: 1rem;
+    }
+}
+
+/* Optimize for Mobile and Tablet (Under 900px) - Accordion Conversion */
+@media (max-width: 900px) {
+    .who-for-layout {
+        display: block; /* Turns off side-by-side flexbox */
+        min-height: auto;
+    }
+
+    .who-for-list {
+        width: 100%; /* List takes full width of the phone */
+    }
+
+    .who-for-default {
+        display: none !important; /* Hide the default image on mobile to save space */
+    }
+
+    /* Convert the content panel into a collapsed accordion drawer */
+    .who-for-content {
+        position: relative; /* Removes it from absolute right-side positioning */
+        width: 100%;
+        height: 0; /* Collapsed by default */
+        padding: 0 24px;
+        opacity: 0;
+        visibility: hidden;
+        border-left: none;
+        border-top: 4px solid #FD8BD1; /* Move the pink accent line to the top */
+        border-radius: 0 0 16px 16px;
+        margin-top: 0;
+        overflow: hidden; /* Crucial to hide text while collapsed */
+        transition: all 0.3s ease;
+    }
+
+    /* Expand the drawer when tapped/hovered */
+    .who-for-item:hover .who-for-content,
+    .who-for-item:active .who-for-content {
+        height: auto;
+        min-height: 250px; /* Gives the background picture room to show */
+        padding: 32px 24px;
+        margin-top: 16px;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* REFINEMENTS FOR WHO IS AAVA FOR SECTION (SECTION 4) */
+
+.who-for-default {
+    opacity: 1 !important;
+    visibility: visible !important;
+    background-image: url('Assets2/pics/Enred2.jpeg') !important;
+    background-size: cover;
+    background-position: center;
+    border-left: 4px solid #FD8BD1 !important; /* Brand Pink Border */
+    z-index: 5;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* The default image stays visible even if hovered directly. 
+   It ONLY hides when an item in the list is hovered. */
+.who-for-layout:has(.who-for-item:hover) .who-for-default {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none; /* Allows the content panels underneath to be interactive */
+}
+
+/* Ensure the content panels (Option 1, 2, etc.) are ready to show up */
+.who-for-content {
+    border-left: 4px solid #FD8BD1 !important;
+    z-index: 10; /* Sits above the default image when active */
+    border-radius: 0 16px 16px 0;
+    transition: all 0.3s ease;
+}
+
+/* SECTION 5: DARK THEME OVERRIDES */
+.difference-section {
+    background-color: #0D1733 !important;
+}
+
+/* Force all text in this section to white */
+.difference-section h2,
+.difference-section p,
+.difference-section h4,
+.difference-section .metric-number,
+.difference-section .metric-label,
+.difference-section .stat-number,
+.difference-section .quote-author,
+.difference-section blockquote,
+.difference-section .text-dark {
+    color: #FFFFFF !important;
+}
+
+/* Force the description to span the full width of the grid below it */
+.difference-section .full-width-desc {
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    text-align: left !important;
+}
+
+/* Convert cards to dark glass so white text is readable */
+.difference-section .diff-card {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.difference-section .diff-card:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: #FD8BD1 !important; /* Brand pink border on hover */
+}
+
+/* Metric Rectangles Styling */
+.difference-section .metrics-column .metric-card {
+    transition: all 0.3s ease;
+}
+
+/* Shrink Metric Rectangles */
+.difference-section .metrics-column { gap: 16px !important; }
+.difference-section .metric-card { padding: 20px 24px !important; }
+.difference-section .metric-number { font-size: clamp(2rem, 4vw, 2.5rem) !important; margin-bottom: 4px !important; }
+.difference-section .metric-label { font-size: 0.95rem !important; }
+
+/* Compact Differentiator Flip Cards */
+.diff-flip-card {
+    height: 200px !important; /* Much smaller than the main service cards */
+    width: 100%;
+}
+.diff-flip-card .flip-card-front,
+.diff-flip-card .flip-card-back {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+.diff-flip-card:hover .flip-card-front,
+.diff-flip-card:hover .flip-card-back {
+    border-color: #FD8BD1 !important; /* Brand pink hover state */
+}
+.diff-flip-card .flip-card-front h4 {
+    margin: 0 !important;
+    font-size: 1.15rem;
+    line-height: 1.4;
+}
+.diff-flip-card .flip-card-back {
+    padding: 20px;
+}
+.diff-flip-card .flip-card-back p {
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Space above the quote */
+.difference-section .founder-quote {
+    max-width: 100% !important;
+    margin: 40px 0 0 0 !important; /* Reverted from 100px */
+    padding: 0 !important;
+    border-left: none !important; 
+    text-align: left;
+}
+
+.difference-section .founder-quote blockquote {
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    color: #FFFFFF !important;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.difference-section .quote-author {
+    color: #FD8BD1 !important; /* Make the author name pop in brand pink */
+    font-size: 1rem;
+    text-align: right !important;
+    display: block; /* Ensures it spans the full width so it can align to the right edge */
+    margin-top: 16px; /* Adds a little breathing room below the blockquote */
+}
+
+/* Small Titles over the cards */
+.micro-title {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    color: #FD8BD1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    font-weight: 700;
+    text-align: center !important; 
+    display: block;
+    width: 100%;
+}
+
+/* Ensure the grid wrapper maintains layout height */
+.grid-item-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.grid-item-wrapper .diff-flip-card {
+    flex-grow: 1; /* Makes the cards stretch to match heights if needed */
+}
+
+/* Differentiator Squares Default & Hover */
+.difference-section .flip-card-front,
+.difference-section .flip-card-back {
+    border: 1px solid rgba(255, 255, 255, 0.3) !important; /* Subtle white border */
+    transition: all 0.3s ease;
+}
+
+/* High-Contrast Revealed State for Differentiator Cards */
+.difference-section .flip-card-back {
+    background-color: #FFFFFF !important;
+}
+
+/* Force all text on the back of the card to Dark Navy */
+.difference-section .flip-card-back p,
+.difference-section .flip-card-back h4,
+.difference-section .flip-card-back span {
+    color: #0D1733 !important;
+}
+
+.difference-section .diff-flip-card:hover .flip-card-front,
+.difference-section .diff-flip-card:hover .flip-card-back {
+    border-color: #FD8BD1 !important; /* Brand Pink on hover/reveal */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Adds depth when the card pops white */
+}
+
+/* Specific Backgrounds for Differentiator Cards */
+.difference-section .diff-b2b-front {
+    background: linear-gradient(rgba(13, 23, 51, 0.65), rgba(13, 23, 51, 0.85)), url('Assets2/pics/bitmap1.png') center/cover no-repeat !important;
+}
+
+.difference-section .diff-web3-front {
+    background: linear-gradient(rgba(13, 23, 51, 0.65), rgba(13, 23, 51, 0.85)), url('Assets2/pics/bitmap2.png') center/cover no-repeat !important;
+}
+
+.difference-section .diff-embedded-front {
+    background: linear-gradient(rgba(13, 23, 51, 0.65), rgba(13, 23, 51, 0.85)), url('Assets2/pics/bitmap3.png') center/cover no-repeat !important;
+}
+
+.difference-section .diff-operator-front {
+    background: linear-gradient(rgba(13, 23, 51, 0.65), rgba(13, 23, 51, 0.85)), url('Assets2/pics/bitmap4.png') center/cover no-repeat !important;
+}
+
+/* Force all differentiator titles to be centered perfectly horizontally AND vertically */
+.difference-section .flip-card-front {
+    display: flex !important;
+    flex-direction: column !important; 
+    align-items: center !important;     /* Centers horizontally */
+    justify-content: center !important; /* Centers vertically */
+    text-align: center !important;
+    padding: 24px !important;           /* Restores even padding around the text */
+}
+
+/* Override any previous top/bottom alignment rules */
+.difference-section .diff-web3-front,
+.difference-section .diff-operator-front,
+.difference-section .diff-embedded-front,
+.difference-section .diff-b2b-front {
+    justify-content: center !important; 
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+}
+
+/* Ensure the title itself doesn't have weird margins pushing it down */
+.difference-section .flip-card-front h4 {
+    margin: 0 !important;
+    width: 100%;
+}
+
+/* SERVICES PAGE SPECIFIC HERO */
+.service-hero-section {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.service-hero-section .relative-z {
+    position: relative;
+    z-index: 2; /* Ensures text and buttons sit above the video overlay */
+}
+
+/* Fix logo sizing and spacing for the navbar */
+.logo-link {
+    display: flex;
+    align-items: center;
+}
+
+/* Reset Footer Positioning for Subpages */
+.about-page .footer,
+.contact-page .footer {
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    margin-top: 60px !important; 
+}
+
+/* DARK THEME FOR SERVICE SECTIONS (AUDIT, STRATEGY, EXECUTION) */
+#audit, #strategy, #execution {
+    background-color: #0D1733 !important;
+    border-top: none !important;
+}
+
+/* Convert Glass Panels for Dark Mode */
+#audit .glass-panel, 
+#strategy .glass-panel, 
+#execution .glass-panel {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Force Headings and Paragraphs to White */
+#audit h2, #audit h3, #audit h4, #audit p,
+#strategy h2, #strategy h3, #strategy h4, #strategy p,
+#execution h2, #execution h3, #execution h4, #execution p {
+    color: #FFFFFF !important;
+}
+
+/* Keep colored subtitle badges visible */
+#audit .subtitle-badge { color: var(--primary-500) !important; border-color: var(--primary-500) !important; }
+#strategy .subtitle-badge { color: #F3D747 !important; border-color: #F3D747 !important; }
+#execution .subtitle-badge { color: #FFFFFF !important; border-color: #FFFFFF !important; }
+
+/* INCREASE TRACKER SIZE AND SPACING */
+.service-tracker {
+    gap: 60px !important; /* Increased space between main items */
+}
+.tracker-item {
+    font-size: 1.4rem !important; /* Bigger default text */
+}
+.tracker-item.active {
+    font-size: 3rem !important; /* Massive active text */
+}
+.service-tracker::before {
+    top: 20px !important;
+    bottom: 20px !important;
+}
+
+/* SUB-MENU STYLING */
+.tracker-sub-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
+    margin-left: 35px; /* Indent under the main Audit dot */
+    overflow: hidden;
+    max-height: 0; /* Hidden by default */
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+/* Show sub-menu when Audit is active */
+.tracker-group:has(.tracker-item.active) .tracker-sub-menu,
+.tracker-group:has(.tracker-sub-item.active) .tracker-sub-menu {
+    max-height: 400px;
+    opacity: 1;
+}
+
+.tracker-sub-item {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.4);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+}
+
+/* THE MODERN CONNECTING LINE */
+.sub-connecting-line {
+    display: block;
+    width: 0px; /* Starts invisible */
+    height: 2px;
+    background: #FD8BD1;
+    transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.tracker-sub-item.active {
+    color: #FFFFFF;
+    font-weight: 600;
+    transform: translateX(10px); /* Nudges text to the right */
+}
+
+.tracker-sub-item.active .sub-connecting-line {
+    width: 30px; /* Shoots a pink line out to point at the box */
+}
+
+/* HIGHLIGHT ACTIVE HORIZONTAL BOX */
+.horizontal-audit-box {
+    transition: all 0.4s ease;
+    border-left: 4px solid transparent !important; /* Prep for highlight */
+}
+.horizontal-audit-box.active-box {
+    border-left: 4px solid #FD8BD1 !important; /* Visual connection to the menu line */
+    background: rgba(255, 255, 255, 0.1) !important;
+    transform: translateX(10px);
+}
+
+
+/* STICKY SERVICE TRACKER */
+.service-tracker {
+    position: fixed;
+    left: clamp(20px, 4vw, 60px);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+/* Fades in only when scrolling past the hero */
+.service-tracker.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* The vertical connecting line */
+.service-tracker::before {
+    content: '';
+    position: absolute;
+    left: 5px; /* Centers the line behind the dots */
+    top: 10px;
+    bottom: 10px;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 0;
+}
+
+/* Default state for the words (Small & Faded) */
+.tracker-item {
+    position: relative;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.4);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    padding-left: 30px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+/* The Dot on the line */
+.tracker-dot {
+    position: absolute;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #0D1733;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    transition: all 0.4s ease;
+}
+
+/* ACTIVE STATE (The text gets massive and the dot glows) */
+.tracker-item.active {
+    color: #FFFFFF;
+    font-size: 2.2rem; /* Big pop effect */
+    font-weight: 800;
+}
+
+.tracker-item.active .tracker-dot {
+    background: #FD8BD1; /* Brand pink */
+    border-color: #FD8BD1;
+    box-shadow: 0 0 15px rgba(253, 139, 209, 0.5);
+    transform: scale(1.3);
+}
+
+/* Hide on screens smaller than 1200px so it doesn't overlap text */
+@media (max-width: 1200px) {
+    .service-tracker {
+        display: none !important;
+    }
+}
+
+/* Strategy Sub-Menu Expansion */
+.strategy-sub-menu {
+    gap: 10px; /* Tighter spacing for the long list */
+}
+.strategy-sub-menu .tracker-sub-item {
+    font-size: 0.85rem; /* Smaller text so it fits on screen */
+}
+.tracker-group:has(.tracker-item[data-target="strategy"].active) .strategy-sub-menu,
+.tracker-group:has(.tracker-sub-item[data-target^="strat-"].active) .strategy-sub-menu {
+    max-height: 800px; /* Much larger max-height to fit all 14 items */
+    opacity: 1;
+}
+
+/* Strategy Connect Line Color */
+.tracker-group:nth-child(2) .sub-connecting-line {
+    background: #F3D747; /* Strategy Yellow */
+}
+
+/* Highlight Active Strategy Box */
+.horizontal-strategy-box {
+    transition: all 0.4s ease;
+    border-left: 4px solid transparent !important;
+}
+.horizontal-strategy-box.active-box {
+    border-left: 4px solid #F3D747 !important; /* Yellow border */
+    background: rgba(255, 255, 255, 0.1) !important;
+    transform: translateX(10px);
+}
+
+/* Execution Sub-Menu & Connect Line Color */
+.tracker-group:has(.tracker-item[data-target="execution"].active) .execution-sub-menu,
+.tracker-group:has(.tracker-sub-item[data-target^="exec-"].active) .execution-sub-menu {
+    max-height: 200px; 
+    opacity: 1;
+}
+.tracker-group:nth-child(3) .sub-connecting-line {
+    background: #FFFFFF; /* Execution White */
+}
+
+/* Highlight Active Execution Box */
+.horizontal-execution-box {
+    transition: all 0.4s ease;
+    border-left: 4px solid transparent !important;
+}
+.horizontal-execution-box.active-box {
+    border-left: 4px solid #FFFFFF !important; /* White border */
+    transform: translateX(10px);
+}
+
+/* RESPONSIVE FIX: Prevent content overlapping with Sticky Spy on laptops */
+@media (min-width: 1201px) {
+    #audit .container, #strategy .container, #execution .container,
+    #who-we-are .container, #our-mission .container, #our-vision .container, #philosophy .container, #our-partners .container {
+        padding-left: 340px !important; /* Creates a safe lane for the sidebar */
+        max-width: 1400px !important; /* Allows boxes to stretch further to the right */
+    }
+}
+
+/* ABOUT PAGE GLOBAL DARK THEME */
+.about-page .section {
+    background-color: #0D1733 !important;
+    border-top: none !important;
+}
+
+.about-page h2, 
+.about-page h3, 
+.about-page h4, 
+.about-page p, 
+.about-page li {
+    color: #FFFFFF !important;
+}
+
+/* Ensure text isn't too stark white where it should be slightly muted */
+.about-page .text-muted,
+.about-page .text-secondary {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* AUDIT SCROLL SPY - FORCE WHITE */
+.tracker-group:nth-child(1) .tracker-item.active .tracker-dot {
+    background: #FFFFFF !important;
+    border-color: #FFFFFF !important;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5) !important;
+}
+
+.tracker-group:nth-child(1) .sub-connecting-line {
+    background: #FFFFFF !important;
+}
+
+.horizontal-audit-box.active-box {
+    border-left: 4px solid #FFFFFF !important;
+}
+
+/* SCROLL SPY ADJUSTMENTS */
+/* Strategy Active Dot */
+.tracker-group:nth-child(2) .tracker-item.active .tracker-dot {
+    background: #F3D747 !important;
+    border-color: #F3D747 !important;
+    box-shadow: 0 0 15px rgba(243, 215, 71, 0.5) !important;
+}
+
+/* Execution Connecting Lines */
+.tracker-group:nth-child(3) .sub-connecting-line {
+    background: #FD8BD1 !important;
+}
+
+/* BULLETPROOF DYNAMIC BOX COLORS (Audit, Strategy, Execution) */
+/* Force background to solid white by default */
+#audit .horizontal-audit-box,
+#strategy .horizontal-strategy-box,
+#execution .horizontal-execution-box {
+    background: #FFFFFF !important;
+    border-radius: 16px !important;
+    border: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    transition: all 0.4s ease;
+}
+
+/* Active State - Dark Glass Background for all */
+#audit .horizontal-audit-box.active-box,
+#strategy .horizontal-strategy-box.active-box,
+#execution .horizontal-execution-box.active-box {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(24px) !important;
+    -webkit-backdrop-filter: blur(24px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* --- INACTIVE STATE (ALL SECTIONS) --- */
+/* Dark Navy Text & Numbers */
+#audit .horizontal-audit-box div,
+#audit .horizontal-audit-box h3,
+#audit .horizontal-audit-box p,
+#audit .horizontal-audit-box a,
+#strategy .horizontal-strategy-box div,
+#strategy .horizontal-strategy-box h3,
+#strategy .horizontal-strategy-box p,
+#strategy .horizontal-strategy-box a,
+#execution .horizontal-execution-box div,
+#execution .horizontal-execution-box h3,
+#execution .horizontal-execution-box p,
+#execution .horizontal-execution-box a {
+    color: #0D1733 !important;
+    opacity: 1 !important;
+    transition: color 0.4s ease;
+}
+
+/* --- ACTIVE STATE COLORS --- */
+
+/* Audit Active: White */
+#audit .horizontal-audit-box.active-box div,
+#audit .horizontal-audit-box.active-box h3,
+#audit .horizontal-audit-box.active-box p,
+#audit .horizontal-audit-box.active-box a {
+    color: #FFFFFF !important;
+}
+
+/* Strategy Active: Yellow (#F3D747) */
+#strategy .horizontal-strategy-box.active-box div,
+#strategy .horizontal-strategy-box.active-box h3,
+#strategy .horizontal-strategy-box.active-box p,
+#strategy .horizontal-strategy-box.active-box a {
+    color: #F3D747 !important;
+}
+
+/* Execution Active: Pink (#FD8BD1) */
+#execution .horizontal-execution-box.active-box div,
+#execution .horizontal-execution-box.active-box h3,
+#execution .horizontal-execution-box.active-box p,
+#execution .horizontal-execution-box.active-box a {
+    color: #FD8BD1 !important;
+}
+
+/* --- DYNAMIC METRIC CARDS (OUR DIFFERENTIATOR) --- */
+
+/* Default State: White Box, Pink Border */
+.difference-section .metrics-column .metric-card {
+    background: #FFFFFF !important;
+    border: 2px solid #FD8BD1 !important;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+/* Default State: Dark Navy Text & Numbers */
+.difference-section .metrics-column .metric-card .metric-number,
+.difference-section .metrics-column .metric-card .metric-label,
+.difference-section .metrics-column .metric-card .counter-val {
+    color: #0D1733 !important;
+    transition: color 0.3s ease;
+}
+
+/* Hover State: Dark Navy Box, Yellow Border, Pop-up */
+.difference-section .metrics-column .metric-card:hover {
+    background: #0D1733 !important;
+    border-color: #F3D747 !important;
+    box-shadow: 0 10px 20px rgba(243, 215, 71, 0.2) !important;
+    transform: translateY(-8px);
+}
+
+/* Hover State: White Text & Numbers */
+.difference-section .metrics-column .metric-card:hover .metric-number,
+.difference-section .metrics-column .metric-card:hover .metric-label,
+.difference-section .metrics-column .metric-card:hover .counter-val {
+    color: #FFFFFF !important;
+}
+
+/* ALIGN METRIC CARDS WITH FLIP CARDS */
+.difference-section .split-layout {
+    align-items: stretch !important;
+}
+
+.difference-section .metrics-column {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    height: 100% !important;
+    gap: 0 !important; /* Removes fixed gap so space-between handles spacing */
+}
