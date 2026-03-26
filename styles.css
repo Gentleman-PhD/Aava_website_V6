@@ -241,17 +241,41 @@ section:not(#hero) {
 }
 
 .nav-links {
-    display: none;
-    /* Mobile hidden by default, shown on larger screens */
+    display: flex;
     gap: 32px;
     align-items: center;
     margin-left: auto;
     margin-right: 32px;
 }
 
-@media (min-width: 900px) {
+/* --- MOBILE NAVBAR OVERRIDES --- */
+@media (max-width: 900px) {
+    .nav-container {
+        flex-wrap: wrap; /* Allows the links to drop to a new line */
+        padding-left: clamp(16px, 4vw, 24px);
+        padding-right: clamp(16px, 4vw, 24px);
+    }
+
     .nav-links {
-        display: flex;
+        width: 100%; /* Forces the links to take the full width below */
+        justify-content: center; /* Centers the text links */
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 16px;
+        gap: 20px; /* Tighter spacing for mobile screens */
+    }
+
+    .nav-links a {
+        font-size: 0.9rem; /* Slightly smaller text for mobile */
+    }
+
+    .nav-logo {
+        height: 45px; /* Shrinks the logo slightly to save space */
+    }
+
+    .nav-cta .btn {
+        padding: 10px 18px;
+        font-size: 0.95rem; /* Shrinks the button slightly to save space */
     }
 }
 
