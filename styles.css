@@ -250,65 +250,83 @@ section:not(#hero) {
 
 /* --- MOBILE NAVBAR OVERRIDES --- */
 @media (max-width: 900px) {
-    /* 1. Global Revert (Fixes Home, Services, About to the good version) */
+    /* Global Mobile Container */
     .nav-container {
         flex-wrap: nowrap !important;
-        padding-left: 12px !important;
-        padding-right: 12px !important;
+        justify-content: flex-end !important;
         align-items: center !important;
-    }
-    .nav-logo { 
-        height: 32px !important; 
-        margin-right: auto !important; 
-    }
-    .nav-links { 
-        display: flex !important; 
-        width: auto !important; 
-        margin: 0 !important; 
-        gap: 12px !important; 
-        justify-content: flex-end !important;
-    }
-    .nav-links a { 
-        font-size: 0.75rem !important; 
-    }
-    .nav-cta { 
-        display: none !important; /* Keep hidden globally for now */
-    }
-
-    /* 2. STRICT TEST LAYOUT FOR CONTACT PAGE ONLY */
-    .contact-page .nav-container {
-        justify-content: flex-end !important;
         gap: 8px !important;
-        padding-left: 16px !important; /* Matches right padding */
-        padding-right: 16px !important; /* Matches left padding */
+        padding-left: 16px !important;
+        padding-right: 16px !important;
     }
 
-    /* THIS is the magic rule: applied to the wrapper, it pushes the logo far left */
-    .contact-page .logo-link {
+    /* Push Logo Wrapper to the Far Left */
+    .logo-link {
         margin-right: auto !important; 
         display: flex !important;
         align-items: center !important;
     }
 
-    .contact-page .nav-logo {
-        opacity: 1 !important;
-        visibility: visible !important;
+    .nav-logo {
         height: 32px !important; 
         margin: 0 !important; 
     }
 
-    .contact-page .nav-links {
+    /* Force Logo visible immediately ONLY on subpages. 
+       The Home page keeps its scroll-reveal behavior! */
+    .services-page .nav-logo,
+    .about-page .nav-logo,
+    .contact-page .nav-logo {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    /* Group Links to the Right */
+    .nav-links {
+        display: flex !important; 
+        width: auto !important; 
+        margin: 0 !important; 
+        justify-content: flex-end !important;
         gap: 8px !important; 
     }
 
-    .contact-page .nav-cta {
+    .nav-links a { 
+        font-size: 0.75rem !important; 
+    }
+
+    /* Global Button Settings */
+    .nav-cta { 
         display: block !important; 
     }
 
-    .contact-page .nav-cta .btn {
+    .nav-cta .btn {
         padding: 6px 10px !important;
         font-size: 0.75rem !important;
         white-space: nowrap !important; 
+    }
+
+    /* --- OVERFLOW KILL SWITCH (Fixes the white space bug) --- */
+    html, body {
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+    }
+
+    /* Force inline 3-column grids on Services to 1 column */
+    .services-overview-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Force inline 2/3-column grids on About page to 1 column */
+    .about-page .container > div[style*="grid"],
+    .about-page .container > div[style*="display: grid"] {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+    }
+
+    /* Ensure images don't stretch the container, but IGNORE the navbar logo */
+    .about-page img:not(.nav-logo) {
+        max-width: 100% !important;
+        height: auto !important;
     }
 }
 
