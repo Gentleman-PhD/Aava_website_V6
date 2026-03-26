@@ -249,4 +249,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
       aboutTargets.forEach(target => aboutObserver.observe(target));
   }
+  // MOBILE TAP TO TOGGLE (Fixes sticky hover on touch devices)
+  // Accordions (Section 4)
+  const accordionItems = document.querySelectorAll('.who-for-item');
+  accordionItems.forEach(item => {
+      item.addEventListener('click', function() {
+          this.classList.toggle('is-open');
+      });
+  });
+
+  // Flip Cards (Sections 3 & 5)
+  const flipCards = document.querySelectorAll('.flip-card, .diff-flip-card');
+  flipCards.forEach(card => {
+      card.addEventListener('click', function() {
+          this.classList.toggle('is-flipped');
+      });
+  });
 });

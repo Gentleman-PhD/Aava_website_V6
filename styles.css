@@ -1520,15 +1520,45 @@ section:not(#hero) {
         transition: all 0.3s ease;
     }
 
-    /* Expand the drawer when tapped/hovered */
+    /* --- MOBILE TAP INTERACTIONS (Overrides sticky hover) --- */
+
+    /* 1. Kill sticky CSS hovers on mobile screens */
     .who-for-item:hover .who-for-content,
     .who-for-item:active .who-for-content {
-        height: auto;
-        min-height: 250px; /* Gives the background picture room to show */
-        padding: 32px 24px;
-        margin-top: 16px;
-        opacity: 1;
-        visibility: visible;
+        height: 0 !important;
+        min-height: 0 !important;
+        padding: 0 24px !important;
+        margin-top: 0 !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+
+    .flip-card:hover .flip-card-inner,
+    .diff-flip-card:hover .flip-card-inner {
+        transform: none !important;
+    }
+
+    /* 2. Apply Javascript Toggle Classes instead */
+    .who-for-item.is-open .who-for-content {
+        height: auto !important;
+        min-height: 250px !important;
+        padding: 32px 24px !important;
+        margin-top: 16px !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    .who-for-item.is-open .plus-icon {
+        transform: rotate(45deg) !important;
+    }
+
+    .who-for-item.is-open .who-for-title {
+        color: #FD8BD1 !important;
+    }
+
+    .flip-card.is-flipped .flip-card-inner,
+    .diff-flip-card.is-flipped .flip-card-inner {
+        transform: rotateY(180deg) !important;
     }
 }
 
@@ -1578,15 +1608,14 @@ section:not(#hero) {
         transition: all 0.3s ease;
     }
 
-    /* Expand the drawer when tapped/hovered */
-    .who-for-item:hover .who-for-content,
-    .who-for-item:active .who-for-content {
-        height: auto;
-        min-height: 250px; /* Gives the background picture room to show */
-        padding: 32px 24px;
-        margin-top: 16px;
-        opacity: 1;
-        visibility: visible;
+    /* Apply Javascript Toggle Classes instead */
+    .who-for-item.is-open .who-for-content {
+        height: auto !important;
+        min-height: 250px !important;
+        padding: 32px 24px !important;
+        margin-top: 16px !important;
+        opacity: 1 !important;
+        visibility: visible !important;
     }
 }
 
@@ -2318,5 +2347,46 @@ section:not(#hero) {
     }
     .contact-text-col .main-hero-logo {
         display: none !important;
+    }
+}
+
+/* --- FIX SERVICES PAGE HORIZONTAL BOXES ON MOBILE --- */
+@media (max-width: 900px) {
+    .horizontal-audit-box,
+    .horizontal-strategy-box,
+    .horizontal-execution-box {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding: 24px !important;
+        gap: 16px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Shrink the giant numbers slightly on mobile */
+    .horizontal-audit-box > div:first-child,
+    .horizontal-strategy-box > div:first-child,
+    .horizontal-execution-box > div:first-child {
+        font-size: 2.5rem !important;
+        margin-bottom: 0 !important;
+        line-height: 1 !important;
+    }
+
+    /* Force the text wrapper to respect the screen width */
+    .horizontal-audit-box > div:nth-child(2),
+    .horizontal-strategy-box > div:nth-child(2),
+    .horizontal-execution-box > div:nth-child(2) {
+        width: 100% !important;
+    }
+
+    /* Adjust the Investor Audit card layout so the absolute link fits */
+    #investor-audit {
+        padding-bottom: 60px !important;
+    }
+
+    #investor-audit .audit-link {
+        right: 24px !important;
+        bottom: 24px !important;
     }
 }
