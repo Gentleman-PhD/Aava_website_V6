@@ -9,15 +9,58 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .placeholder-section {
-            padding-top: 150px;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-    </style>
+  <style>
+      .placeholder-section {
+          padding-top: 150px;
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+
+      /* NUCLEAR MOBILE OVERRIDE FOR SERVICES BOXES */
+      @media (max-width: 900px) {
+          /* Crush the boxes into vertical stacks */
+          .horizontal-audit-box,
+          .horizontal-strategy-box,
+          .horizontal-execution-box {
+              display: flex !important;
+              flex-direction: column !important;
+              align-items: flex-start !important;
+              padding: 24px !important;
+              gap: 16px !important;
+              width: 100% !important;
+              max-width: 100% !important;
+              box-sizing: border-box !important;
+          }
+
+          /* Shrink the massive numbers */
+          .horizontal-audit-box > div:first-child,
+          .horizontal-strategy-box > div:first-child,
+          .horizontal-execution-box > div:first-child {
+              font-size: 2.5rem !important;
+              margin-bottom: 0 !important;
+              line-height: 1 !important;
+          }
+
+          /* Force text to wrap and not push the screen wide */
+          .horizontal-audit-box > div:nth-child(2),
+          .horizontal-strategy-box > div:nth-child(2),
+          .horizontal-execution-box > div:nth-child(2) {
+              width: 100% !important;
+              max-width: 100% !important;
+          }
+
+          /* Fix Investor Audit Link */
+          #investor-audit {
+              padding-bottom: 60px !important;
+          }
+          #investor-audit .audit-link {
+              right: 24px !important;
+              bottom: 24px !important;
+          }
+      }
+  </style>
 </head>
 
 <body class="services-page">
