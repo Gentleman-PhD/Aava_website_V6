@@ -250,32 +250,65 @@ section:not(#hero) {
 
 /* --- MOBILE NAVBAR OVERRIDES --- */
 @media (max-width: 900px) {
+    /* 1. Global Revert (Fixes Home, Services, About to the good version) */
     .nav-container {
-        flex-wrap: wrap; /* Allows the links to drop to a new line */
-        padding-left: clamp(16px, 4vw, 24px);
-        padding-right: clamp(16px, 4vw, 24px);
+        flex-wrap: nowrap !important;
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+        align-items: center !important;
+    }
+    .nav-logo { 
+        height: 32px !important; 
+        margin-right: auto !important; 
+    }
+    .nav-links { 
+        display: flex !important; 
+        width: auto !important; 
+        margin: 0 !important; 
+        gap: 12px !important; 
+        justify-content: flex-end !important;
+    }
+    .nav-links a { 
+        font-size: 0.75rem !important; 
+    }
+    .nav-cta { 
+        display: none !important; /* Keep hidden globally for now */
     }
 
-    .nav-links {
-        width: 100%; /* Forces the links to take the full width below */
-        justify-content: center; /* Centers the text links */
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 16px;
-        gap: 20px; /* Tighter spacing for mobile screens */
+    /* 2. STRICT TEST LAYOUT FOR CONTACT PAGE ONLY */
+    .contact-page .nav-container {
+        justify-content: flex-end !important;
+        gap: 8px !important;
+        padding-left: 16px !important; /* Matches right padding */
+        padding-right: 16px !important; /* Matches left padding */
     }
 
-    .nav-links a {
-        font-size: 0.9rem; /* Slightly smaller text for mobile */
+    /* THIS is the magic rule: applied to the wrapper, it pushes the logo far left */
+    .contact-page .logo-link {
+        margin-right: auto !important; 
+        display: flex !important;
+        align-items: center !important;
     }
 
-    .nav-logo {
-        height: 45px; /* Shrinks the logo slightly to save space */
+    .contact-page .nav-logo {
+        opacity: 1 !important;
+        visibility: visible !important;
+        height: 32px !important; 
+        margin: 0 !important; 
     }
 
-    .nav-cta .btn {
-        padding: 10px 18px;
-        font-size: 0.95rem; /* Shrinks the button slightly to save space */
+    .contact-page .nav-links {
+        gap: 8px !important; 
+    }
+
+    .contact-page .nav-cta {
+        display: block !important; 
+    }
+
+    .contact-page .nav-cta .btn {
+        padding: 6px 10px !important;
+        font-size: 0.75rem !important;
+        white-space: nowrap !important; 
     }
 }
 
