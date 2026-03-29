@@ -2390,3 +2390,181 @@ section:not(#hero) {
         bottom: 24px !important;
     }
 }
+
+/* --- GLOBAL HAMBURGER STYLES (HIDDEN ON DESKTOP) --- */
+.nav-actions-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.hamburger-menu {
+    display: none; /* Hidden on Desktop */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1002;
+    padding: 0;
+}
+
+.hamburger-menu .bar {
+    width: 100%;
+    height: 2px;
+    background-color: #FFFFFF;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Hamburger Animation (Turns into an X) */
+.hamburger-menu.open .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.hamburger-menu.open .bar:nth-child(2) { opacity: 0; }
+.hamburger-menu.open .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* Fullscreen Blur Overlay Menu */
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(13, 23, 51, 0.98);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    z-index: 1000;
+}
+
+.nav-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav-overlay-links {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+}
+
+.nav-overlay-links a {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* --- MOBILE NAVBAR OVERRIDES (APPLIES TO PHONES/TABLETS) --- */
+@media (max-width: 900px) {
+    .nav-container {
+        justify-content: space-between !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        flex-wrap: nowrap !important;
+    }
+
+    .nav-links {
+        display: none !important; /* Hide standard text links on mobile */
+    }
+
+    .hamburger-menu {
+        display: flex !important; /* Show hamburger on mobile */
+    }
+
+    .logo-link {
+        margin-right: auto !important;
+    }
+
+    /* Logo scaling for mobile */
+    .nav-logo {
+        height: 48px !important; /* Significantly larger mobile logo */
+        margin: 0 !important;
+    }
+
+    .nav-actions-right {
+        gap: 16px !important;
+        margin-left: 0 !important;
+    }
+
+    .nav-cta-btn {
+        padding: 8px 12px !important;
+        font-size: 0.8rem !important;
+        white-space: nowrap !important;
+    }
+}
+
+/* --- FIX OUR VISION STACKING ORDER ON MOBILE --- */
+@media (max-width: 900px) {
+    #our-vision .vision-content-grid {
+        display: flex !important;
+        flex-direction: column-reverse !important;
+        gap: 40px !important;
+    }
+}
+
+/* --- CRITICAL MOBILE OVERRIDES FOR SERVICES INTERACTIVE BOXES --- */
+@media (max-width: 900px) {
+    /* 1. Stop the Scroll Spy from pushing boxes off screen */
+    .horizontal-audit-box.active-box,
+    .horizontal-strategy-box.active-box,
+    .horizontal-execution-box.active-box {
+        transform: none !important; /* Kills the 10px shift causing overflow */
+        margin-left: 0 !important;
+    }
+
+    /* 2. Force the boxes into a vertical stack and shrink padding */
+    .horizontal-audit-box,
+    .horizontal-strategy-box,
+    .horizontal-execution-box {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding: 24px !important;
+        gap: 16px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 3. Override INLINE font sizes for the massive numbers */
+    .horizontal-audit-box > div:first-child,
+    .horizontal-strategy-box > div:first-child,
+    .horizontal-execution-box > div:first-child {
+        font-size: 2rem !important; /* Shrunk from 3rem */
+        margin-bottom: 0 !important;
+        line-height: 1 !important;
+    }
+
+    /* 4. Override INLINE font sizes for the Titles */
+    .horizontal-audit-box h3,
+    .horizontal-strategy-box h3,
+    .horizontal-execution-box h3 {
+        font-size: 1.25rem !important; /* Shrunk from 1.6rem */
+        line-height: 1.3 !important;
+    }
+
+    /* 5. Override INLINE font sizes for the Paragraphs */
+    .horizontal-audit-box p,
+    .horizontal-strategy-box p,
+    .horizontal-execution-box p {
+        font-size: 0.95rem !important;
+        line-height: 1.5 !important;
+    }
+
+    /* 6. Fix Investor Audit absolute link positioning */
+    #investor-audit {
+        padding-bottom: 60px !important;
+    }
+    #investor-audit .audit-link {
+        right: 24px !important;
+        bottom: 20px !important;
+    }
+}

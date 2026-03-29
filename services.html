@@ -18,9 +18,27 @@
           justify-content: center;
       }
 
-      /* NUCLEAR MOBILE OVERRIDE FOR SERVICES BOXES */
+      /* NUCLEAR MOBILE OVERRIDE FOR SERVICES PAGE */
       @media (max-width: 900px) {
-          /* Crush the boxes into vertical stacks */
+          /* 1. Prevent the entire page from stretching sideways */
+          html, body {
+              overflow-x: hidden !important;
+              width: 100% !important;
+              position: relative;
+          }
+
+          /* 2. Crush all hard-coded 3-column inline grids (This fixes the page stretching!) */
+          div[style*="repeat(3, 1fr)"] {
+              grid-template-columns: 1fr !important;
+              gap: 24px !important;
+          }
+
+          /* 3. Shrink the massive 60px inline padding on the "Why it matters" boxes */
+          div[style*="padding: 60px"] {
+              padding: 32px 20px !important;
+          }
+
+          /* 4. Crush the interactive cards into vertical stacks */
           .horizontal-audit-box,
           .horizontal-strategy-box,
           .horizontal-execution-box {
@@ -32,9 +50,10 @@
               width: 100% !important;
               max-width: 100% !important;
               box-sizing: border-box !important;
+              transform: none !important; /* Forces the Scroll Spy shift to disable on mobile */
           }
 
-          /* Shrink the massive numbers */
+          /* 5. Shrink the massive numbers */
           .horizontal-audit-box > div:first-child,
           .horizontal-strategy-box > div:first-child,
           .horizontal-execution-box > div:first-child {
@@ -43,15 +62,16 @@
               line-height: 1 !important;
           }
 
-          /* Force text to wrap and not push the screen wide */
+          /* 6. Force text to wrap and not push the screen wide */
           .horizontal-audit-box > div:nth-child(2),
           .horizontal-strategy-box > div:nth-child(2),
           .horizontal-execution-box > div:nth-child(2) {
               width: 100% !important;
               max-width: 100% !important;
+              box-sizing: border-box !important;
           }
 
-          /* Fix Investor Audit Link */
+          /* 7. Fix Investor Audit Link */
           #investor-audit {
               padding-bottom: 60px !important;
           }
@@ -69,14 +89,30 @@
             <a href="index.html" class="logo-link">
                 <img src="Assets2/AAVA_white.png" alt="Aava Growth Logo" class="nav-logo visible" style="opacity: 1 !important; visibility: visible !important;">
             </a>
+
             <div class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="services.html">Services</a>
                 <a href="about.html">About</a>
                 <a href="contact.html">Contact</a>
             </div>
-            <div class="nav-cta">
-                <a href="contact.html" class="btn btn-primary">Book a Call</a>
+
+            <div class="nav-actions-right">
+                <a href="contact.html" class="btn btn-primary nav-cta-btn">Book a Call</a>
+                <button class="hamburger-menu" id="hamburger-menu" aria-label="Toggle menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="nav-overlay" id="nav-overlay">
+            <div class="nav-overlay-links">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
             </div>
         </div>
     </nav>
