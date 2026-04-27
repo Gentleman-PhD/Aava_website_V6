@@ -2121,6 +2121,7 @@ section:not(#hero) {
 }
 
 /* ABOUT PAGE GLOBAL DARK THEME */
+body.about-page,
 .about-page .section {
     background-color: #0D1733 !important;
     border-top: none !important;
@@ -2566,5 +2567,54 @@ section:not(#hero) {
     #investor-audit .audit-link {
         right: 24px !important;
         bottom: 20px !important;
+    }
+}
+
+/* --- INFINITE LOGO CAROUSEL --- */
+.logo-carousel-container {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    padding: 20px 0;
+    /* Creates a fade effect on the left and right edges */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.logo-carousel-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    animation: carousel-scroll 80s linear infinite;
+}
+
+.logo-carousel-track:hover {
+    animation-play-state: paused; /* Pauses the scroll when the user hovers over it */
+}
+
+.carousel-logo {
+    height: 45px; /* Slightly larger since they are full color blocks */
+    width: auto;
+    margin: 0 24px; /* Spacing between logos */
+    object-fit: contain;
+    border-radius: 8px; /* Softens the hard JPEG edges */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow for depth */
+    transition: transform 0.3s ease;
+}
+
+.carousel-logo:hover {
+    transform: scale(1.08); /* Replaces the color flash with a slight physical pop */
+}
+
+@keyframes carousel-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Scrolls exactly half the track to loop perfectly */
+}
+
+/* Mobile Adjustments for Carousel */
+@media (max-width: 900px) {
+    .carousel-logo {
+        height: 25px; /* Even smaller on phones */
+        margin: 0 20px;
     }
 }
