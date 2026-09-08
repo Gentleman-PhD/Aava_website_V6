@@ -154,10 +154,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // UPDATED SCROLL SPY LOGIC (BUG FIX & EXECUTION ADDED)
+  // SERVICE TRACKER LOGIC (MULTI-PAGE & SCROLL SPY)
   const tracker = document.getElementById('service-tracker');
   const allTargets = document.querySelectorAll('#audit, #strategy, #execution, #sales-audit, #revenue-audit, #excellence-audit, #investor-audit, #strat-market, #strat-icp, #strat-pricing, #strat-custom, #strat-sales, #strat-journey, #strat-capability, #strat-playbook, #strat-event, #strat-fund, #strat-transform, #strat-revenue, #strat-pipeline, #strat-partner, #exec-fractional, #exec-growth, #exec-coaching');
-  const trackerItems = document.querySelectorAll('.tracker-item, .tracker-sub-item');
+  const trackerSubItems = document.querySelectorAll('.tracker-sub-item');
+
+  // Activate main tracker item based on current page URL
+  if (tracker) {
+    const currentPath = window.location.pathname.toLowerCase();
+    if (currentPath.includes('audit')) {
+      const auditItem = document.querySelector('.tracker-item[data-target="audit"]');
+      if (auditItem) auditItem.classList.add('active');
+    }
+    if (currentPath.includes('strategy')) {
+      const strategyItem = document.querySelector('.tracker-item[data-target="strategy"]');
+      if (strategyItem) strategyItem.classList.add('active');
+    }
+    if (currentPath.includes('execution')) {
+      const executionItem = document.querySelector('.tracker-item[data-target="execution"]');
+      if (executionItem) executionItem.classList.add('active');
+    }
+  }
 
   if (tracker && allTargets.length > 0) {
       const trackerObserver = new IntersectionObserver((entries) => {
@@ -168,26 +185,18 @@ document.addEventListener("DOMContentLoaded", () => {
               const link = document.querySelector(`[data-target="${id}"]`);
 
               if (entry.isIntersecting) {
-                  // UNIVERSAL CLEAR: Fixes the scroll-up bug by wiping ALL active classes first
-                  trackerItems.forEach(item => item.classList.remove('active'));
+                  // Only clear and activate sub-items (main tracker items stay active based on page URL)
+                  trackerSubItems.forEach(item => item.classList.remove('active'));
                   document.querySelectorAll('.horizontal-audit-box, .horizontal-strategy-box, .horizontal-execution-box').forEach(box => box.classList.remove('active-box'));
 
-                  if (link) link.classList.add('active');
+                  if (link && link.classList.contains('tracker-sub-item')) {
+                      link.classList.add('active');
+                  }
 
-                  // Keep Parent "Audit" Active
-                  if (entry.target.classList.contains('horizontal-audit-box')) {
+                  if (entry.target.classList.contains('horizontal-audit-box') ||
+                      entry.target.classList.contains('horizontal-strategy-box') ||
+                      entry.target.classList.contains('horizontal-execution-box')) {
                       entry.target.classList.add('active-box');
-                      document.querySelector('.tracker-item[data-target="audit"]').classList.add('active');
-                  }
-                  // Keep Parent "Strategy" Active
-                  if (entry.target.classList.contains('horizontal-strategy-box')) {
-                      entry.target.classList.add('active-box');
-                      document.querySelector('.tracker-item[data-target="strategy"]').classList.add('active');
-                  }
-                  // Keep Parent "Execution" Active
-                  if (entry.target.classList.contains('horizontal-execution-box')) {
-                      entry.target.classList.add('active-box');
-                      document.querySelector('.tracker-item[data-target="execution"]').classList.add('active');
                   }
               }
           });

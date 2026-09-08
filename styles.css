@@ -65,7 +65,14 @@ p {
 
 /* COMPONENTS */
 .container {
-    max-width: var(--container-max-width);
+    /* .section is `display:flex; flex-direction:column`, and this rule's
+       `margin: 0 auto` gives the item auto cross-axis margins, which opts it
+       out of flex stretch. The container therefore shrink-to-fits its
+       max-content width and could grow WIDER than the section's content box
+       (about.html hit 1148px inside a 902px box at 1024px viewport).
+       min() caps it at the parent's content box without changing any container
+       that already fits, so it is a pure clamp. */
+    max-width: min(var(--container-max-width), 100%);
     margin: 0 auto;
     padding: 0 24px;
 }
@@ -1893,9 +1900,9 @@ section:not(#hero) {
 }
 
 /* Force Headings and Paragraphs to White */
-#audit h2, #audit h3, #audit h4, #audit p,
-#strategy h2, #strategy h3, #strategy h4, #strategy p,
-#execution h2, #execution h3, #execution h4, #execution p {
+#audit h1, #audit h2, #audit h3, #audit h4, #audit p,
+#strategy h1, #strategy h2, #strategy h3, #strategy h4, #strategy p,
+#execution h1, #execution h2, #execution h3, #execution h4, #execution p {
     color: #FFFFFF !important;
 }
 
@@ -2116,7 +2123,13 @@ section:not(#hero) {
     #audit .container, #strategy .container, #execution .container,
     #who-we-are .container, #our-mission .container, #our-vision .container, #philosophy .container, #our-partners .container {
         padding-left: 340px !important; /* Creates a safe lane for the sidebar */
-        max-width: 1400px !important; /* Allows boxes to stretch further to the right */
+        /* Was a flat `max-width: 1400px`, which is wider than the space these
+           sections actually have: the parent .section carries 80px side padding,
+           so 1400px only fits once the viewport reaches 1480px. Every laptop
+           between 1201px and 1479px (1280 / 1366 / 1440 included) was pushed
+           into a horizontal scrollbar. min() keeps the 1400px ceiling on large
+           screens but never lets the container exceed its parent's content box. */
+        max-width: min(1400px, 100%) !important;
     }
 }
 
@@ -2616,5 +2629,138 @@ body.about-page,
     .carousel-logo {
         height: 25px; /* Even smaller on phones */
         margin: 0 20px;
+    }
+}
+
+
+/* --- SERVICES HUB: "WHAT WE DO" OVERVIEW CARD CTAs --- */
+/* Each overview card used to be one large <a> wrapping its whole contents.
+   An <a> cannot be nested inside another <a> (the HTML parser closes the outer
+   one and the card breaks apart), so the card is now a <div> and the
+   .explore-link inside it is stretched across the card via ::after. The whole
+   card therefore stays clickable while there is exactly one real link. */
+.service-overview-card {
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.service-overview-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(13, 23, 51, 0.12);
+    border-color: #FD8BD1 !important;
+}
+
+.explore-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;   /* pins the CTA to the card bottom so all three align */
+    padding-top: 24px;  /* clear air below the paragraph */
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: #0D1733;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.explore-link span {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+/* Hovering the link OR anywhere on the card lights up the CTA */
+.explore-link:hover,
+.service-overview-card:hover .explore-link {
+    color: #FD8BD1;
+}
+
+.explore-link:hover span,
+.service-overview-card:hover .explore-link span {
+    transform: translateX(6px);
+}
+
+/* Stretch the hit area over the entire card */
+.explore-link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+}
+
+/* Keyboard focus lands on the link, but should outline the whole card */
+.explore-link:focus-visible::after {
+    outline: 3px solid #FD8BD1;
+    outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .service-overview-card,
+    .explore-link,
+    .explore-link span {
+        transition: none;
+    }
+    .service-overview-card:hover {
+        transform: none;
+    }
+}
+
+
+/* --- UNIFIED GLOBAL FOOTER (all pages except contact.html) --- */
+/* Layout: email hard left, copyright centred, LinkedIn hard right.
+   Uses a class rather than inline styles so the media query below can
+   actually override it (inline styles cannot be overridden by a stylesheet). */
+.footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px 32px;
+    width: 100%;
+}
+
+.footer-inner .footer-copy {
+    flex: 1 1 auto;
+    text-align: center;
+    margin: 0;
+}
+
+.footer-inner .footer-email {
+    flex: 0 0 auto;
+    text-align: left;
+}
+
+.footer-inner .footer-social {
+    flex: 0 0 auto;
+    text-align: right;
+}
+
+/* Footer links had no hover feedback; match the site's pink accent. */
+.footer .footer-link:hover,
+.footer .footer-link:focus-visible {
+    color: #FD8BD1 !important;
+}
+
+/* Stack and centre on narrow screens so nothing collides or overflows. */
+@media (max-width: 700px) {
+    .footer-inner {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .footer-inner .footer-email,
+    .footer-inner .footer-social,
+    .footer-inner .footer-copy {
+        flex: 0 0 auto;
+        text-align: center;
+        width: 100%;
+    }
+
+    /* Contact details first, legal line last. */
+    .footer-inner .footer-copy {
+        order: 3;
     }
 }

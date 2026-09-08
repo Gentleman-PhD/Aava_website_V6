@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Execution &amp; Fractional Sales Talent | Aava Growth</title>
+    <!-- Standard Meta Description for Google Search -->
+    <meta name="description" content="Aava Growth builds commercial strategies that compound, not campaigns that spike. We help emerging technology and Web3 companies build predictable B2B growth through commercial strategy, sales architecture and embedded execution.">
+
+    <!-- Favicon for Browser Tab -->
+    <link rel="icon" type="image/png" href="Assets2/ICONS/A_white.png">
+
+    <!-- Open Graph Meta Tags for Link Sharing (WhatsApp, Slack, iMessage, LinkedIn, etc.) -->
+    <meta property="og:title" content="Execution &amp; Fractional Sales Talent | Aava Growth">
+    <!-- Open Graph Meta Description for Social Sharing -->
+    <meta property="og:description" content="Aava Growth builds commercial strategies that compound, not campaigns that spike. We help emerging technology and Web3 companies build predictable B2B growth through commercial strategy, sales architecture and embedded execution.">
+    <meta property="og:image" content="./Assets2/Preview_Frame_3.png">
+    <meta property="og:type" content="website">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  <style>
+      .placeholder-section {
+          padding-top: 150px;
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+
+      /* NUCLEAR MOBILE OVERRIDE FOR SERVICES PAGE */
+      @media (max-width: 900px) {
+          /* 1. Prevent the entire page from stretching sideways */
+          html, body {
+              overflow-x: hidden !important;
+              width: 100% !important;
+              position: relative;
+          }
+
+          /* 2. Crush all hard-coded 3-column inline grids (This fixes the page stretching!) */
+          div[style*="repeat(3, 1fr)"] {
+              grid-template-columns: 1fr !important;
+              gap: 24px !important;
+          }
+
+          /* 3. Shrink the massive 60px inline padding on the "Why it matters" boxes */
+          div[style*="padding: 60px"] {
+              padding: 32px 20px !important;
+          }
+
+          /* 4. Crush the interactive cards into vertical stacks */
+          .horizontal-audit-box,
+          .horizontal-strategy-box,
+          .horizontal-execution-box {
+              display: flex !important;
+              flex-direction: column !important;
+              align-items: flex-start !important;
+              padding: 24px !important;
+              gap: 16px !important;
+              width: 100% !important;
+              max-width: 100% !important;
+              box-sizing: border-box !important;
+              transform: none !important; /* Forces the Scroll Spy shift to disable on mobile */
+          }
+
+          /* 5. Shrink the massive numbers */
+          .horizontal-audit-box > div:first-child,
+          .horizontal-strategy-box > div:first-child,
+          .horizontal-execution-box > div:first-child {
+              font-size: 2.5rem !important;
+              margin-bottom: 0 !important;
+              line-height: 1 !important;
+          }
+
+          /* 6. Force text to wrap and not push the screen wide */
+          .horizontal-audit-box > div:nth-child(2),
+          .horizontal-strategy-box > div:nth-child(2),
+          .horizontal-execution-box > div:nth-child(2) {
+              width: 100% !important;
+              max-width: 100% !important;
+              box-sizing: border-box !important;
+          }
+
+          /* 7. Fix Investor Audit Link */
+          #investor-audit {
+              padding-bottom: 60px !important;
+          }
+          #investor-audit .audit-link {
+              right: 24px !important;
+              bottom: 24px !important;
+          }
+      }
+
+      /* Service detail pages: the shared .footer is position:absolute and on the
+         old combined page it was nested inside a positioned section. Here it is a
+         direct child of the body element, so it must flow normally rather than
+         the initial containing block (which made it overlap the content). */
+      .service-detail-page .footer {
+          position: relative !important;
+          bottom: auto !important;
+      }
+
+      /* The footer's translucent navy overlay assumes a dark ground (on the old
+         combined page it sat inside a dark section). Its text is forced white,
+         so the page ground must stay navy or the footer becomes unreadable. */
+      body.service-detail-page {
+          background-color: #0D1733;
+      }
+  </style>
+</head>
+
+<body class="services-page service-detail-page">
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo-link">
+                <img src="Assets2/AAVA_white.png" alt="Aava Growth Logo" class="nav-logo visible" style="opacity: 1 !important; visibility: visible !important;">
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div class="nav-actions-right">
+                <a href="contact.html" class="btn btn-primary nav-cta-btn">Book a Call</a>
+                <button class="hamburger-menu" id="hamburger-menu" aria-label="Toggle menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="nav-overlay" id="nav-overlay">
+            <div class="nav-overlay-links">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="service-tracker" class="service-tracker">
+        <div class="tracker-group">
+            <a href="services-audit.html" class="tracker-item" data-target="audit">
+                <span class="tracker-dot"></span>
+                Audit
+            </a>
+            <div class="tracker-sub-menu">
+                <a href="services-audit.html#sales-audit" class="tracker-sub-item" data-target="sales-audit"><span class="sub-connecting-line"></span> Sales Audit</a>
+                <a href="services-audit.html#revenue-audit" class="tracker-sub-item" data-target="revenue-audit"><span class="sub-connecting-line"></span> Revenue Alignment</a>
+                <a href="services-audit.html#excellence-audit" class="tracker-sub-item" data-target="excellence-audit"><span class="sub-connecting-line"></span> Commercial Excellence</a>
+                <a href="services-audit.html#investor-audit" class="tracker-sub-item" data-target="investor-audit"><span class="sub-connecting-line"></span> Investor Audit</a>
+            </div>
+        </div>
+        <div class="tracker-group">
+            <a href="services-strategy.html" class="tracker-item" data-target="strategy">
+                <span class="tracker-dot"></span>
+                Strategy
+            </a>
+            <div class="tracker-sub-menu strategy-sub-menu">
+                <a href="services-strategy.html#strat-market" class="tracker-sub-item" data-target="strat-market"><span class="sub-connecting-line"></span> Market &amp; Competitive</a>
+                <a href="services-strategy.html#strat-icp" class="tracker-sub-item" data-target="strat-icp"><span class="sub-connecting-line"></span> Ideal Customer Profile</a>
+                <a href="services-strategy.html#strat-pricing" class="tracker-sub-item" data-target="strat-pricing"><span class="sub-connecting-line"></span> Product &amp; Pricing</a>
+                <a href="services-strategy.html#strat-custom" class="tracker-sub-item" data-target="strat-custom"><span class="sub-connecting-line"></span> Customized Commercial</a>
+                <a href="services-strategy.html#strat-sales" class="tracker-sub-item" data-target="strat-sales"><span class="sub-connecting-line"></span> Sales Strategy</a>
+                <a href="services-strategy.html#strat-journey" class="tracker-sub-item" data-target="strat-journey"><span class="sub-connecting-line"></span> Customer Journey</a>
+                <a href="services-strategy.html#strat-capability" class="tracker-sub-item" data-target="strat-capability"><span class="sub-connecting-line"></span> Commercial Capability</a>
+                <a href="services-strategy.html#strat-playbook" class="tracker-sub-item" data-target="strat-playbook"><span class="sub-connecting-line"></span> Commercial Playbook</a>
+                <a href="services-strategy.html#strat-event" class="tracker-sub-item" data-target="strat-event"><span class="sub-connecting-line"></span> Event Strategy</a>
+                <a href="services-strategy.html#strat-fund" class="tracker-sub-item" data-target="strat-fund"><span class="sub-connecting-line"></span> Fundraising Readiness</a>
+                <a href="services-strategy.html#strat-transform" class="tracker-sub-item" data-target="strat-transform"><span class="sub-connecting-line"></span> Transformation Strategy</a>
+                <a href="services-strategy.html#strat-revenue" class="tracker-sub-item" data-target="strat-revenue"><span class="sub-connecting-line"></span> Revenue Model Design</a>
+                <a href="services-strategy.html#strat-pipeline" class="tracker-sub-item" data-target="strat-pipeline"><span class="sub-connecting-line"></span> Pipeline &amp; Demand</a>
+                <a href="services-strategy.html#strat-partner" class="tracker-sub-item" data-target="strat-partner"><span class="sub-connecting-line"></span> Partnership Strategy</a>
+            </div>
+        </div>
+        <div class="tracker-group">
+            <a href="services-execution.html" class="tracker-item" data-target="execution">
+                <span class="tracker-dot"></span>
+                Execution
+            </a>
+            <div class="tracker-sub-menu execution-sub-menu">
+                <a href="#exec-fractional" class="tracker-sub-item" data-target="exec-fractional"><span class="sub-connecting-line"></span> Fractional Leadership</a>
+                <a href="#exec-growth" class="tracker-sub-item" data-target="exec-growth"><span class="sub-connecting-line"></span> Growth &amp; BD</a>
+                <a href="#exec-coaching" class="tracker-sub-item" data-target="exec-coaching"><span class="sub-connecting-line"></span> Sales Coaching</a>
+            </div>
+        </div>
+    </div>
+
+    <section id="execution" style="padding-top: calc(var(--nav-height) + 40px);" class="section bg-secondary">
+        <div class="container">
+            <div class="service-header text-center" style="margin-bottom: 80px;">
+                <div class="subtitle-badge" style="border: 1px solid #FD8BD1 !important; color: #FD8BD1 !important; display: inline-block; margin-bottom: 24px;">Execution</div>
+                <h1 class="section-title">Execution &amp; Fractional Sales Talent</h1>
+              <h2 class="section-subtitle" style="margin-top: 8px;">Hands-On Growth.<br>On Demand.</h2>
+                <p class="section-description">We act as your embedded execution partner, providing senior commercial talent that executes alongside you until the system runs without us.</p>
+                <div style="margin-top: 32px;">
+                    <a href="contact.html" class="btn btn-primary btn-large" style="color: #0D1733 !important; font-weight: 700;">Let's Talk</a>
+                </div>
+            </div>
+
+            <div class="execution-types-grid horizontal-service-grid" style="display: grid; grid-template-columns: 1fr; gap: 20px; margin-bottom: 60px;">
+                <div id="exec-fractional" class="glass-panel horizontal-execution-box" style="display: flex; gap: 40px; padding: 40px; align-items: center;">
+                    <div style="font-size: 3rem; font-weight: 800; color: #FFFFFF; opacity: 0.5; line-height: 1;">1</div>
+                    <div>
+                        <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; color: #FFFFFF;">Fractional Commercial Leadership</h3>
+                        <p style="margin: 0;">Part-time and project-based CCO, Head of Sales or CRO, providing senior expertise, guiding strategy, and supporting execution without full-time overhead.</p>
+                    </div>
+                </div>
+                <div id="exec-growth" class="glass-panel horizontal-execution-box" style="display: flex; gap: 40px; padding: 40px; align-items: center;">
+                    <div style="font-size: 3rem; font-weight: 800; color: #FFFFFF; opacity: 0.5; line-height: 1;">2</div>
+                    <div>
+                        <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; color: #FFFFFF;">Growth & BD Engine</h3>
+                        <p style="margin: 0;">Dedicated SDR’s and BD reps embedded per your need, focused on pipeline growth and partnerships.</p>
+                    </div>
+                </div>
+                <div id="exec-coaching" class="glass-panel horizontal-execution-box" style="display: flex; gap: 40px; padding: 40px; align-items: center;">
+                    <div style="font-size: 3rem; font-weight: 800; color: #FFFFFF; opacity: 0.5; line-height: 1;">3</div>
+                    <div>
+                        <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; color: #FFFFFF;">Sales Coaching</h3>
+                        <p style="margin: 0;">Individual coaching for salespeople and sales teams that increases capability, removes sales obstacles, and supports leadership goals.</p>
+                    </div>
+                </div>
+            </div>
+
+          <div style="margin-top: 80px; text-align: center; background: rgba(255,255,255,0.02); padding: 60px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.05);">
+              <h3 style="font-size: 1.8rem; margin-bottom: 40px; color: #FFFFFF;">Why Our Talent Pool Matters: Agile Sales</h3>
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: left;">
+                  <div>
+                      <div style="width: 40px; height: 1px; background: #FD8BD1; margin-bottom: 20px;"></div>
+                      <h4 style="margin-bottom: 15px; color: #FFFFFF;">Mitigate Cost & Risk</h4>
+                      <p style="font-size: 0.95rem; color: rgba(255, 255, 255, 0.7);">Avoid the high costs and risks of full-time hires for early-stage projects. Access elite talent only when you need it.</p>
+                  </div>
+                  <div>
+                      <div style="width: 40px; height: 1px; background: #FD8BD1; margin-bottom: 20px;"></div>
+                      <h4 style="margin-bottom: 15px; color: #FFFFFF;">Targeted Expertise</h4>
+                      <p style="font-size: 0.95rem; color: rgba(255, 255, 255, 0.7);">Hit specific growth targets or fix commercial challenges with precise skill sets for precise outcomes.</p>
+                  </div>
+                  <div>
+                      <div style="width: 40px; height: 1px; background: #FD8BD1; margin-bottom: 20px;"></div>
+                      <h4 style="margin-bottom: 15px; color: #FFFFFF;">Monitored & Managed</h4>
+                      <p style="font-size: 0.95rem; color: rgba(255, 255, 255, 0.7);">We actively monitor and manage the delivery of our talent, ensuring consistent performance and adherence to frameworks.</p>
+                  </div>
+              </div>
+          </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <a href="mailto:hello@aavagrowth.com" class="footer-link footer-email">hello@aavagrowth.com</a>
+            <p class="footer-copy">&copy; 2026 Aava Growth. Partners in your growth.</p>
+            <a href="https://www.linkedin.com/company/aava-growth" target="_blank" rel="noopener noreferrer" class="footer-link footer-social">LinkedIn</a>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
